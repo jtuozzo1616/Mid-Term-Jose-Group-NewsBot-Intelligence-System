@@ -45,7 +45,6 @@ jobs:
       - name: Verify required real outputs before publication
         run: python verify_release.py
       - name: Publish aggregate evidence to the public repository
-        continue-on-error: true
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -53,7 +52,11 @@ jobs:
           git add docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf docs/NewsBot_Reflection_Solo.pdf
           if ! git diff --cached --quiet; then
             git commit -m "docs: publish verified BBC evaluation figures and empirical reports [skip ci]"
-            git push
+            # The training run may last several minutes; main can move meanwhile.
+            # Rebase *only* the new evidence commit onto the latest remote main.
+            git fetch origin main
+            git rebase -X theirs origin/main
+            git push origin HEAD:main
           else
             echo "No changed empirical artifacts"
           fi
