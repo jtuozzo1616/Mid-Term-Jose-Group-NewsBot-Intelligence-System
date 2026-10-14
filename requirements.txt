@@ -13,3 +13,6 @@ nbformat>=5.9,<6
 nbclient>=0.9,<1
 reportlab>=4.0,<5
 pillow>=10,<13
+
+# Required when the notebook executes in a headless GitHub runner
+ipykernel>=6.28,<8
