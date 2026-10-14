@@ -1,0 +1,6 @@
+Actual labeled sample: 1440 articles.
+Selected model: Linear SVM. Training-only tuned CV macro-F1: 0.9801.
+Untouched holdout accuracy: 0.9618; macro-F1: 0.9605.
+Weakest holdout class: entertainment, F1=0.9515.
+Highest mean VADER category: entertainment, 0.5900.
+Entity co-mentions are associative, NOT semantic edges.

@@ -1,0 +1,28 @@
+{
+  "seed": 42,
+  "rows": 1440,
+  "train_rows": 1152,
+  "holdout_rows": 288,
+  "selected_model": "Linear SVM",
+  "selected_parameters": {
+    "classifier__C": 2.0,
+    "tfidf__max_features": 10000,
+    "tfidf__ngram_range": [
+      1,
+      2
+    ]
+  },
+  "cv_macro_f1": 0.9801209554052438,
+  "holdout_accuracy": 0.9618055555555556,
+  "holdout_macro_f1": 0.960532860144243,
+  "python": "3.11.17",
+  "sklearn": "1.9.1",
+  "spaCy": "3.8.16",
+  "linguistic_char_cap": 3500,
+  "source_file_sha256": "f56a65dab2ea728505a639d2186a2b2f1c0939f28e8e89b5ed1c1fe9520b1323",
+  "dataset_origin": "public_research_mirror_of_Kaggle_competition_CSV",
+  "source_url": "https://www.kaggle.com/competitions/learn-ai-bbc/data",
+  "public_research_mirror_url": "https://raw.githubusercontent.com/alvinrach/learn-ai-bbc/main/BBC%20News%20Train.csv",
+  "license_note": "BBC rights reserved; do not publish raw news text",
+  "notebook_execution_status": "REAL_DATA_EXECUTED"
+}

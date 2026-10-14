@@ -1,0 +1,495 @@
+{
+  "dataset": {
+    "articles": 1440,
+    "source": "Kaggle BBC News Train.csv",
+    "labels": {
+      "sport": 342,
+      "business": 335,
+      "politics": 266,
+      "entertainment": 263,
+      "tech": 234
+    },
+    "missing_removed": 0,
+    "exact_text_duplicates_removed": 50,
+    "dataset_status": "INSTRUCTOR_APPROVAL_REQUIRED"
+  },
+  "evaluation": {
+    "selected_algorithm": "Linear SVM",
+    "cross_validation_macro_f1": 0.9801,
+    "holdout": {
+      "accuracy": 0.9618055555555556,
+      "macro_f1": 0.960532860144243,
+      "weighted_f1": 0.9616467623661384
+    },
+    "holdout_articles": 288
+  },
+  "sentiment": {
+    "mean_vader_by_category": {
+      "business": 0.2381,
+      "entertainment": 0.59,
+      "politics": 0.0541,
+      "sport": 0.5492,
+      "tech": 0.533
+    }
+  },
+  "distinctive_tfidf_terms": {
+    "business": [
+      {
+        "term": "growth",
+        "weight_difference": 0.0265
+      },
+      {
+        "term": "shares",
+        "weight_difference": 0.026
+      },
+      {
+        "term": "market",
+        "weight_difference": 0.0255
+      },
+      {
+        "term": "firm",
+        "weight_difference": 0.0253
+      },
+      {
+        "term": "economy",
+        "weight_difference": 0.0245
+      },
+      {
+        "term": "company",
+        "weight_difference": 0.0243
+      },
+      {
+        "term": "bank",
+        "weight_difference": 0.0237
+      },
+      {
+        "term": "economic",
+        "weight_difference": 0.022
+      }
+    ],
+    "entertainment": [
+      {
+        "term": "film",
+        "weight_difference": 0.0559
+      },
+      {
+        "term": "actor",
+        "weight_difference": 0.0277
+      },
+      {
+        "term": "awards",
+        "weight_difference": 0.0276
+      },
+      {
+        "term": "star",
+        "weight_difference": 0.0266
+      },
+      {
+        "term": "best",
+        "weight_difference": 0.0255
+      },
+      {
+        "term": "award",
+        "weight_difference": 0.0252
+      },
+      {
+        "term": "music",
+        "weight_difference": 0.025
+      },
+      {
+        "term": "band",
+        "weight_difference": 0.0238
+      }
+    ],
+    "politics": [
+      {
+        "term": "labour",
+        "weight_difference": 0.0466
+      },
+      {
+        "term": "election",
+        "weight_difference": 0.0436
+      },
+      {
+        "term": "blair",
+        "weight_difference": 0.0409
+      },
+      {
+        "term": "mr",
+        "weight_difference": 0.0404
+      },
+      {
+        "term": "party",
+        "weight_difference": 0.0384
+      },
+      {
+        "term": "government",
+        "weight_difference": 0.0352
+      },
+      {
+        "term": "minister",
+        "weight_difference": 0.0315
+      },
+      {
+        "term": "mr blair",
+        "weight_difference": 0.0279
+      }
+    ],
+    "sport": [
+      {
+        "term": "game",
+        "weight_difference": 0.0303
+      },
+      {
+        "term": "win",
+        "weight_difference": 0.0284
+      },
+      {
+        "term": "cup",
+        "weight_difference": 0.0263
+      },
+      {
+        "term": "match",
+        "weight_difference": 0.0255
+      },
+      {
+        "term": "england",
+        "weight_difference": 0.0242
+      },
+      {
+        "term": "season",
+        "weight_difference": 0.0239
+      },
+      {
+        "term": "team",
+        "weight_difference": 0.0236
+      },
+      {
+        "term": "coach",
+        "weight_difference": 0.0236
+      }
+    ],
+    "tech": [
+      {
+        "term": "users",
+        "weight_difference": 0.0363
+      },
+      {
+        "term": "software",
+        "weight_difference": 0.0325
+      },
+      {
+        "term": "technology",
+        "weight_difference": 0.0324
+      },
+      {
+        "term": "people",
+        "weight_difference": 0.0289
+      },
+      {
+        "term": "computer",
+        "weight_difference": 0.0272
+      },
+      {
+        "term": "mobile",
+        "weight_difference": 0.0271
+      },
+      {
+        "term": "online",
+        "weight_difference": 0.0263
+      },
+      {
+        "term": "net",
+        "weight_difference": 0.0255
+      }
+    ]
+  },
+  "class_performance": [
+    {
+      "category": "business",
+      "precision": 0.9559,
+      "recall": 0.9701,
+      "f1": 0.963,
+      "support": 67
+    },
+    {
+      "category": "entertainment",
+      "precision": 0.98,
+      "recall": 0.9245,
+      "f1": 0.9515,
+      "support": 53
+    },
+    {
+      "category": "politics",
+      "precision": 0.9615,
+      "recall": 0.9434,
+      "f1": 0.9524,
+      "support": 53
+    },
+    {
+      "category": "sport",
+      "precision": 0.9577,
+      "recall": 1.0,
+      "f1": 0.9784,
+      "support": 68
+    },
+    {
+      "category": "tech",
+      "precision": 0.9574,
+      "recall": 0.9574,
+      "f1": 0.9574,
+      "support": 47
+    }
+  ],
+  "cross_validation_models": [
+    {
+      "name": "Linear SVM",
+      "mean_cv_macro_f1": 0.9782,
+      "std_cv_macro_f1": 0.0103,
+      "mean_cv_accuracy": 0.9791
+    },
+    {
+      "name": "Logistic Regression",
+      "mean_cv_macro_f1": 0.9692,
+      "std_cv_macro_f1": 0.0105,
+      "mean_cv_accuracy": 0.9705
+    },
+    {
+      "name": "Naive Bayes",
+      "mean_cv_macro_f1": 0.9681,
+      "std_cv_macro_f1": 0.0155,
+      "mean_cv_accuracy": 0.9696
+    },
+    {
+      "name": "Dummy majority",
+      "mean_cv_macro_f1": 0.0769,
+      "std_cv_macro_f1": 0.0005,
+      "mean_cv_accuracy": 0.2379
+    }
+  ],
+  "misclassified_holdout_count": 11,
+  "feature_ablation": [
+    {
+      "ngram_min": 1,
+      "ngram_max": 1,
+      "cv_macro_f1": 0.9775852853994644
+    },
+    {
+      "ngram_min": 1,
+      "ngram_max": 2,
+      "cv_macro_f1": 0.9801209554052438
+    }
+  ],
+  "robustness_stress_test": [
+    {
+      "condition": "Original holdout",
+      "macro_f1": 0.960532860144243,
+      "accuracy": 0.9618055555555556
+    },
+    {
+      "condition": "6% eligible-token character swaps",
+      "macro_f1": 0.963946758010408,
+      "accuracy": 0.9652777777777778
+    }
+  ],
+  "bootstrap_macro_f1_95pct_ci": [
+    0.9334,
+    0.98
+  ],
+  "frequent_confusions": [
+    {
+      "actual": "tech",
+      "predicted": "business",
+      "count": 2
+    },
+    {
+      "actual": "entertainment",
+      "predicted": "tech",
+      "count": 2
+    },
+    {
+      "actual": "business",
+      "predicted": "sport",
+      "count": 1
+    },
+    {
+      "actual": "politics",
+      "predicted": "entertainment",
+      "count": 1
+    },
+    {
+      "actual": "entertainment",
+      "predicted": "politics",
+      "count": 1
+    }
+  ],
+  "ner": {
+    "mentions_by_type": {
+      "DATE": 8274,
+      "PERSON": 7482,
+      "GPE": 5222,
+      "ORG": 4149,
+      "MONEY": 1667
+    },
+    "top_comentions": [
+      [
+        "blair",
+        "tony blair",
+        50
+      ],
+      [
+        "michael howard",
+        "tony blair",
+        28
+      ],
+      [
+        "blair",
+        "gordon brown",
+        23
+      ],
+      [
+        "gordon brown",
+        "tony blair",
+        22
+      ],
+      [
+        "blair",
+        "michael howard",
+        21
+      ],
+      [
+        "howard",
+        "michael howard",
+        20
+      ],
+      [
+        "charles kennedy",
+        "tony blair",
+        20
+      ],
+      [
+        "charles kennedy",
+        "michael howard",
+        19
+      ],
+      [
+        "charles kennedy",
+        "kennedy",
+        18
+      ],
+      [
+        "brown",
+        "gordon brown",
+        18
+      ],
+      [
+        "microsoft",
+        "microsoft s",
+        14
+      ],
+      [
+        "howard",
+        "tony blair",
+        13
+      ],
+      [
+        "charles kennedy",
+        "lib dem",
+        12
+      ],
+      [
+        "bbc news",
+        "tony blair",
+        12
+      ],
+      [
+        "lib dem",
+        "tony blair",
+        11
+      ]
+    ]
+  },
+  "pos": {
+    "NOUN": {
+      "business": 0.2527,
+      "entertainment": 0.2499,
+      "politics": 0.234,
+      "sport": 0.2082,
+      "tech": 0.262
+    },
+    "PROPN": {
+      "business": 0.0824,
+      "entertainment": 0.0993,
+      "politics": 0.0808,
+      "sport": 0.1048,
+      "tech": 0.05
+    },
+    "VERB": {
+      "business": 0.1244,
+      "entertainment": 0.1223,
+      "politics": 0.1367,
+      "sport": 0.1285,
+      "tech": 0.1342
+    },
+    "ADJ": {
+      "business": 0.08,
+      "entertainment": 0.0745,
+      "politics": 0.0754,
+      "sport": 0.0714,
+      "tech": 0.0837
+    },
+    "ADV": {
+      "business": 0.0307,
+      "entertainment": 0.0294,
+      "politics": 0.0306,
+      "sport": 0.0372,
+      "tech": 0.0372
+    },
+    "ADP": {
+      "business": 0.122,
+      "entertainment": 0.1171,
+      "politics": 0.1109,
+      "sport": 0.1102,
+      "tech": 0.1179
+    },
+    "NUM": {
+      "business": 0.0389,
+      "entertainment": 0.0336,
+      "politics": 0.0179,
+      "sport": 0.0327,
+      "tech": 0.0251
+    },
+    "PRON": {
+      "business": 0.0393,
+      "entertainment": 0.0559,
+      "politics": 0.062,
+      "sport": 0.0778,
+      "tech": 0.0552
+    },
+    "AUX": {
+      "business": 0.0547,
+      "entertainment": 0.052,
+      "politics": 0.0695,
+      "sport": 0.0589,
+      "tech": 0.0635
+    }
+  },
+  "syntax": {
+    "mean_passives_by_category": {
+      "business": 6.03,
+      "entertainment": 7.951,
+      "politics": 10.782,
+      "sport": 4.927,
+      "tech": 10.406
+    }
+  },
+  "limitations": [
+    "Historical 2004–2005 single-source BBC coverage; do not infer 2026 trends",
+    "Dataset has 5 categories, not health",
+    "Sentiment lexicon is not an objective fact checker",
+    "Emotion proxy is an illustrative dictionary, not a trained emotion classifier",
+    "Entity co-mentions do not imply real-world relationships",
+    "NER/parse statistics truncate after 3,500 characters",
+    "Cross-validation and heldout testing are in-domain; generalization to recent stories is unproven"
+  ]
+}

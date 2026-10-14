@@ -1,0 +1,8 @@
+{
+  "holdout_macro_f1_95pct_bootstrap_interval": [
+    0.9334,
+    0.98
+  ],
+  "bootstrap_resamples": 800,
+  "limitations": "within-sample sampling uncertainty only; not external or time-shift validation"
+}

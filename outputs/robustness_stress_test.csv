@@ -1,0 +1,3 @@
+condition,macro_f1,accuracy
+Original holdout,0.960532860144243,0.9618055555555556
+6% eligible-token character swaps,0.963946758010408,0.9652777777777778
