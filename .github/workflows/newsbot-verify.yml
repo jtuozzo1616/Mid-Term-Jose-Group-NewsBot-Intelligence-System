@@ -54,6 +54,10 @@ jobs:
             git commit -m "docs: publish verified BBC evaluation figures and empirical reports [skip ci]"
             # The training run may last several minutes; main can move meanwhile.
             # Rebase *only* the new evidence commit onto the latest remote main.
+            # Generated cells also touch tracked local files not included in the evidence commit.
+            # Safely discard those *unstaged* runner-only changes before rebasing.
+            git status --short
+            git restore --worktree .
             git fetch origin main
             git rebase -X theirs origin/main
             git push origin HEAD:main
