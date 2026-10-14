@@ -1,40 +1,32 @@
-# NewsBot — Final grading quality gate and limitations
+# Final 100-point rubric audit — evidence based (14 October 2026)
 
-**Student:** José Miguel Tuozzo Izaguirre | **ITAI 2373** | **Scope:** Individual adaptation
+**Course:** ITAI 2373 — NewsBot Intelligence System
+**Student:** José Miguel Tuozzo Izaguirre
+**Live repo:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
+**Green real-data run:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38488603289
+**Green artifact publication:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38489270753
 
-## Instructor rubric mapped to verifiable evidence (100 base points)
-
-| Component | Value | Evidence in this package | What cannot yet be declared complete |
+| Rubric dimension | Maximum | Verified evidence | Remaining non-technical risk |
 |---|---:|---|---|
-| Individual public GitHub repository | 30 | Organized `ITAI2373-NewsBot-Midterm` folder, README, Colab notebook, regression tests, dashboard, provenance and docs | Actual user-owned public repository must be created/published and link verified |
-| Eight-module technical system | 30 | Module 1 purpose+data, 2 cleaning/tokens/lemmas, 3 TF-IDF, 4 POS, 5 dependencies/SVO, 6 VADER/emotion proxies, 7 four classifiers + heldout metrics, 8 NER/co-mentions; interactive demo + release verifier | The complete workflow has not yet been executed on actual BBC data in this isolated environment |
-| Analysis and business insights | 30 | Seven core charts + one advanced stress chart, per-class precision/recall/F1, confusion matrix, CV, tuning, term interpretation, error excerpts, bootstrap interval, run hash, business interpretation | Actual figures, scores and observed results generated only during a real BBC run; no placeholder can replace them |
-| Presentation and documentation | 10 | Professionally formatted technical PDF, exactly two-page individual reflection, script for optional six-minute video, research citations | Report remains marked pre-run and lacks actual repository URL; optional video cannot be recorded/uploaded by code |
+| GitHub repository | 30 | Public standalone repo; 36 notebook cells; README, module code, 10 passing software tests, 8 BBC visualizations, CSV/JSON output and reproducibility manifest | Instructor specified a folder inside an individual portfolio; this is standalone per student's request |
+| Technical implementation | 30 | All 8 NLP modules executed successfully; spaCy parsing/POS/NER, VADER, TF-IDF, 4 model families, clean stratified evaluation, 3 new fictional news inputs, packaged runner and optional Streamlit dashboard | No independent verification of behavior on other publishers or recent articles |
+| Analysis and business insights | 30 | 1440 retained historical BBC articles, Linear SVM tuned CV macro-F1 0.9801, independent 288-item test accuracy 0.9618 and macro-F1 0.9605, confusion matrix, per-class metrics and entity/lexical/syntax insights, typo stress test and bootstrap uncertainty | Human must interpret findings and explain limitations; BBC historical accuracy is not real-world effectiveness |
+| Presentation/documentation | 10 | Seven-page report grounded in measured results; exactly two-page personal reflection PDF; reproducible Colab launcher; video demonstration script and optional dashboard source | No student-recorded demo; journal needs firsthand personal review; group journal substituted by solo version |
 
-## Execution verification
+## Source and data validity
 
-- `python -m unittest discover -s tests -p 'test_*.py' -v`: **8 synthetic regression tests passed** in the present isolated environment; no claim about real BBC model quality.
-- `python -m py_compile dashboard.py generate_final_report.py reflection.py verify_release.py run_all_and_package.py`: source syntax passes.
-- Notebook: **36 cells** with eight modules and an additional explicitly labeled robustness extension.
-- `docs/NewsBot_Reflection_Solo.pdf`: two pages, no fabricated collaborators.
-- `docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf`: three-page research-methods draft; it will be regenerated with real plots and numeric findings once the notebook has executed.
-- Source BBC competition official description: 1,490 labeled training articles and five classes. The optional research mirror is documented separately, and the original BBC copyright remains intact.
+- Training source: public research copy of the labeled BBC Kaggle competition training CSV; source SHA-256 recorded in outputs/run_manifest.json: f56a65dab2ea728505a639d2186a2b2f1c0939f28e8e89b5ed1c1fe9520b1323.
+- The original 1,490-row file retained **1,440** articles after cleaning/duplicate removal; 1,152 were used for training and 288 held out for the final assessment. Five official categories: business, entertainment, politics, sport, tech (not health).
+- 10 local synthetic-fixture tests passed and the complete data workflow completed on GitHub Actions. Synthetic-fixture evaluation must never be submitted as historical BBC performance.
+- Class F1: business 0.9630, entertainment 0.9515, politics 0.9524, sport 0.9784, tech 0.9574.
+- The two-page reflection discusses personal/project responsibility but requires the actual student to confirm what work they did and what they learned; no fictitious team meetings are claimed.
+- The GitHub Actions evidence archive has the executed notebook, eight figures, CSVs, trained model, seven-page report and two-page reflection. Source news texts and error excerpts must not be published as public repository files.
 
-## Why a 100/100 cannot yet be guaranteed
+## Remaining before final submission
 
-A code audit is not a blind 100-point grade. Three external conditions matter: **real-data execution**, **working GitHub repository**, and any instructor-specific interpretation of the original team/dataset requirements. Course grading and approval decisions cannot be supplied by this package. The full BBC corpus and pretrained spaCy model were not available as mounted attachments or installable resources in the isolated build environment, and outbound network retrieval from that runtime failed. Do not publish synthetic accuracy of 1.000 as empirical news accuracy.
+1. Obtain professor acceptance of **solo instead of teams of 3–4**, of the **Kaggle dataset** and of the **standalone repository rather than an individual portfolio folder**, as required by the written rubric.
+2. Personally review the 2-page journal; update it to describe your real decisions, obstacles and learning. Explicitly disclose AI assistance as required by your course.
+3. Optionally record the requested 5–7 minute original screen/video demonstration if seeking bonus credit.
+4. Submit the **public URL** and the exact **reflection PDF** in Canvas as the instructor directs.
 
-## Fast route to a demonstrably complete submission
-
-1. Upload the provided ZIP to Google Colab; unzip it, `cd ITAI2373-NewsBot-Midterm`, and execute the commands in README section **Streamlined end-to-end execution**. The notebook tries a documented public research mirror if `BBC News Train.csv` was not uploaded, and records the exact SHA-256 of the input.
-2. Download the generated `NewsBot_VERIFIED_EXECUTION_EVIDENCE.zip` after the script prints a real-data PASS. Inspect class metrics, the most frequent confusions, VADER and POS charts.
-3. Regenerate and personally verify the individual reflection. Verify that PDF still has exactly 2 pages; author must confirm first-person learning claims are accurate.
-4. Publish the permitted project assets under your own GitHub repository, verify the public URL, and regenerate the report with `--repo` containing that precise link. Do not upload licensed article texts or credentials.
-5. Optional: record the 5–7-minute demonstration following `docs/Video_Demo_6_Minute_Script.md`, including new articles and observed numbers, then add the verified video URL.
-
-## Transparency rules
-
-The synthetic 525-row fixture is constructed from obvious category vocabularies only to test code paths; 100% fixture accuracy is neither surprising nor reportable as BBC evaluation. The spelling stress test is an **artificial perturbation** of in-domain holdout articles, not publisher or temporal generalization. The bootstrap confidence interval estimates sampling variability conditional on that old corpus and split; it does not address editorial domain shift. The basic emotion word list is not a validated emotion classifier. Co-mentions are not verified relationships.
-
-
-**Current workflow:** [Verified BBC Evaluation](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/workflows/newsbot-verify.yml). Synthetic local tests are separate from historical BBC held-out model scores. Refer to outputs/run_manifest.json and the latest green workflow for actual figures; do not substitute test-fixture scores.
+This audit is evidence of implemented technical and presentation elements, **not a guarantee of a 100/100 grade**.
