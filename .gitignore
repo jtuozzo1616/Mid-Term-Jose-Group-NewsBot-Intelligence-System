@@ -1,0 +1,20 @@
+# Do not redistribute original BBC/Kaggle full-text news corpora.
+data/*
+!data/.gitkeep
+BBC News Train.csv
+BBC News Test.csv
+learn-ai-bbc.zip
+kaggle.json
+.kaggle/
+.env
+.env.*
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.pyc
+# Outputs only after real-data execution
+outputs/*
+!outputs/.gitkeep
+*.joblib
+*EXECUTED.ipynb
+NewsBot_VERIFIED_EXECUTION_EVIDENCE.zip
