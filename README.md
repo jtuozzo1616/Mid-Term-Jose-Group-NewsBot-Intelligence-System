@@ -9,6 +9,7 @@
 
 | Goal | Open |
 |---|---|
+| **Run and download all evidence automatically (recommended)** | [Launch the one-click Colab notebook](https://colab.research.google.com/github/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/RUN_NEWSBOT_IN_COLAB.ipynb) |
 | Run the complete NLP notebook | [Open in Google Colab](https://colab.research.google.com/github/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/Midterm_NewsBot_Intelligence_System.ipynb) |
 | See the course-style 8-module notebook | [Midterm_NewsBot_Intelligence_System.ipynb](Midterm_NewsBot_Intelligence_System.ipynb) |
 | One-click test on GitHub runners | [Verified BBC Evaluation workflow](.github/workflows/newsbot-verify.yml) — use Actions tab / Run workflow |
@@ -30,7 +31,7 @@ This end-to-end, English-language **historical BBC news** NLP system loads label
 1. Click **Open in Google Colab** above and select *Runtime → Run all*.
 2. The notebook installs its dependencies and English spaCy small model, then downloads the public research mirror of the recommended Kaggle **BBC News Train.csv** unless a user-supplied official CSV is present. If automatic download fails, obtain the CSV from the [original Kaggle competition](https://www.kaggle.com/competitions/learn-ai-bbc/data), review terms and upload it.
 3. Let all notebook cells finish. Check five labels, data quality counts, cross-validation macro-F1 and **independent held-out** results. Download outputs before the temporary Colab session expires.
-4. For the full PDF + evidence ZIP, run `python run_all_and_package.py --github https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System` in a prepared project directory (the [launcher notebook](RUN_NEWSBOT_IN_COLAB.ipynb) can also automate this if you upload a compatible project ZIP).
+4. For the full PDF + evidence ZIP, run `python run_all_and_package.py --github https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System` in a prepared project directory (the [one-click Colab launcher](RUN_NEWSBOT_IN_COLAB.ipynb) clones this repository and automates installation, execution and downloading the evidence ZIP (no additional project ZIP upload)).
 
 ### GitHub Actions (automated, no paid Colab)
 
