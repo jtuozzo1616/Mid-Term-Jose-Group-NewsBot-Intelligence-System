@@ -3,7 +3,7 @@
 **ITAI 2373 — Natural Language Processing (Modules 1–8)**  
 **Student:** José Miguel Tuozzo Izaguirre  
 **Project source:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System  
-**Status:** Executable source and regression tests provided. **Real BBC corpus metrics become verified only after the workflow executes successfully.**
+**Verified status:** All 8 modules executed on historical labeled BBC news in [successful GitHub Actions run #38488603289](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38488603289); 10 synthetic-only software tests passed; aggregate results and updated PDFs are published.
 
 ### Quick access
 
@@ -14,9 +14,36 @@
 | See the course-style 8-module notebook | [Midterm_NewsBot_Intelligence_System.ipynb](Midterm_NewsBot_Intelligence_System.ipynb) |
 | One-click test on GitHub runners | [Verified BBC Evaluation workflow](.github/workflows/newsbot-verify.yml) — use Actions tab / Run workflow |
 | Inspect research decisions | [Research and evidence notes](docs/RESEARCH_EVIDENCE.md) |
-| Read the academic report | [PDF (draft until after real run)](docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) |
-| Read the exactly two-page solo reflection | [PDF (draft; review personally)](docs/NewsBot_Reflection_Solo.pdf) |
-| Explore the optional web interface code | [Streamlit dashboard](dashboard.py) (needs trained model) |
+| Read the academic report | [Data-grounded PDF report (7 pages)](docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) |
+| Read the exactly two-page solo reflection | [Empirical two-page reflection draft (personal review required)](docs/NewsBot_Reflection_Solo.pdf) |
+| Explore the optional web interface code | [Streamlit dashboard](dashboard.py) (trained model now published in outputs; deploy Streamlit to open the web interface) |
+
+## Verified historical BBC experiment — October 2026
+
+**Actual held-out experiment**, not software-fixture scores. The recommended 1,490-row labeled source retained **1,440 articles** after validation/deduplication and was split into **1,152 training / 288 untouched testing** articles. With stratified training-only five-fold cross-validation and tuning, **Linear SVM** performed best.
+
+| Measurement | Actual value |
+|---|---:|
+| Selected classifier | Linear SVM (C=2, TF-IDF ngrams=1–2) |
+| Tuned five-fold training CV macro-F1 | 0.9801 |
+| Independent holdout accuracy | **0.9618 (96.18%)** |
+| Independent holdout macro-F1 | **0.9605** |
+| Strongest holdout category | sport: F1 **0.9784** |
+| Weakest holdout category | entertainment: F1 **0.9515** |
+
+**Source and reproduction:** [run manifest](outputs/run_manifest.json) records the SHA-256 of the public mirror of the original Kaggle BBC training file, Python/library versions, train/holdout counts, model and selected hyperparameters. [Per-class metrics](outputs/per_class_metrics.csv), [CV comparison](outputs/model_cv_comparison.csv), [confusion matrix](outputs/06_confusion_matrix.png), [eight visualizations](outputs), [real-data evidence archive](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38488603289) and a [successful publication run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38489270753) are available.
+
+**Business interpretation:** high *in-domain historical BBC* F1 supports a **human-reviewed routing prototype**, not fully automated publication. Entertainment has the lowest per-class F1 and deserves extra editorial scrutiny. Sport has perfect holdout recall in this sample, but that does not imply perfect performance on new publishers or recent news. Sentiment is lexical polarity rather than the journalist's beliefs; same-article entity co-mentions are not factual relationships.
+
+**Run the optional dashboard locally** after cloning this repo:
+
+```bash
+python -m pip install -r requirements-dashboard.txt
+python -m spacy download en_core_web_sm
+streamlit run dashboard.py
+```
+
+The trained model is available at [outputs/newsbot_classifier.joblib](outputs/newsbot_classifier.joblib) and should be loaded **only when you trust this repository**, because Python joblib/pickle formats are not safe for untrusted files. GitHub itself shows source code and PDFs; a live Streamlit website requires separate deployment. The course's optional demo video must be recorded by the student.
 
 ## What NewsBot does
 
