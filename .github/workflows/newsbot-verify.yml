@@ -14,6 +14,10 @@ on:
       - "requirements.txt"
       - "tests/**"
 
+concurrency:
+  group: newsbot-bbc-evaluation
+  cancel-in-progress: true
+
 permissions:
   contents: write
 
