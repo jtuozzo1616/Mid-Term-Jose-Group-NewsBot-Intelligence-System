@@ -37,6 +37,7 @@ jobs:
           python -m pip install -r requirements.txt
           python -m spacy download en_core_web_sm
           python -m nltk.downloader vader_lexicon
+          python -m ipykernel install --user --name python3 --display-name "Python 3 (NewsBot)"
       - name: Unit tests on synthetic software fixtures (NOT BBC metrics)
         run: python -m unittest discover -s tests -v
       - name: Execute complete notebook on historical BBC data
