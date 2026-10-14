@@ -14,7 +14,7 @@
 ## Execution verification
 
 - `python -m unittest discover -s tests -p 'test_*.py' -v`: **8 synthetic regression tests passed** in the present isolated environment; no claim about real BBC model quality.
-- `python -m py_compile dashboard.py generate_final_report.py generate_individual_reflection.py verify_release.py run_all_and_package.py`: source syntax passes.
+- `python -m py_compile dashboard.py generate_final_report.py reflection.py verify_release.py run_all_and_package.py`: source syntax passes.
 - Notebook: **36 cells** with eight modules and an additional explicitly labeled robustness extension.
 - `docs/NewsBot_Reflection_Solo.pdf`: two pages, no fabricated collaborators.
 - `docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf`: three-page research-methods draft; it will be regenerated with real plots and numeric findings once the notebook has executed.
@@ -35,3 +35,6 @@ A code audit is not a blind 100-point grade. Three external conditions matter: *
 ## Transparency rules
 
 The synthetic 525-row fixture is constructed from obvious category vocabularies only to test code paths; 100% fixture accuracy is neither surprising nor reportable as BBC evaluation. The spelling stress test is an **artificial perturbation** of in-domain holdout articles, not publisher or temporal generalization. The bootstrap confidence interval estimates sampling variability conditional on that old corpus and split; it does not address editorial domain shift. The basic emotion word list is not a validated emotion classifier. Co-mentions are not verified relationships.
+
+
+**Current workflow:** [Verified BBC Evaluation](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/workflows/newsbot-verify.yml). Synthetic local tests are separate from historical BBC held-out model scores. Refer to outputs/run_manifest.json and the latest green workflow for actual figures; do not substitute test-fixture scores.
