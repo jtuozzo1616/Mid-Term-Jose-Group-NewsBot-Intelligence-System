@@ -12,8 +12,8 @@ def main():
     from nbclient import NotebookClient
     from verify_release import verify
     from generate_final_report import create
-    from generate_individual_reflection import main as refresh_reflection
-    ap=argparse.ArgumentParser();ap.add_argument('--github',default='[ADD YOUR VERIFIED PUBLIC GITHUB URL]')
+    from reflection import main as refresh_reflection
+    ap=argparse.ArgumentParser();ap.add_argument('--github',default='https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System')
     ap.add_argument('--timeout',type=int,default=1800);args=ap.parse_args()
     target=ROOT/'Midterm_NewsBot_Intelligence_System.ipynb'
     nb=nbformat.read(target,as_version=4)
@@ -23,8 +23,11 @@ def main():
     out=client.execute()
     executed=ROOT/'Midterm_NewsBot_Intelligence_System_EXECUTED.ipynb'
     nbformat.write(out,executed)
-    verify(ROOT/'outputs')
+    manifest=verify(ROOT/'outputs')
+    if not str(args.github).startswith('https://github.com/'):
+        raise ValueError('Please supply the real public GitHub repository URL.')
     report=create(['--group','Solo','--repo',args.github])
+    refresh_reflection()  # Regenerate the two-page evidence-grounded reflection draft.
     doc=ROOT/'docs'/'NewsBot_Reflection_Solo.pdf'
     files=[executed,report,doc,*list((ROOT/'outputs').glob('*'))]
     package=ROOT/'NewsBot_VERIFIED_EXECUTION_EVIDENCE.zip'
@@ -32,4 +35,5 @@ def main():
         for f in files:
             if f.is_file():z.write(f,f.relative_to(ROOT))
     print('READY: verified execution ZIP:',package)
+    print('Real BBC holdout macro-F1:',manifest['holdout_macro_f1'])
 if __name__=='__main__':main()
