@@ -1,59 +1,34 @@
-**Published standalone project:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
+# NewsBot Midterm — current execution and submission instructions
 
-# NewsBot Midterm — Exact Completion Procedure (English)
+**Student:** José Miguel Tuozzo Izaguirre | **Course:** ITAI 2373  
+**Canonical project:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System  
+**Personal portfolio folder:** https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm
 
-**Course:** ITAI 2373 | **Student:** José Miguel Tuozzo Izaguirre | **Goal:** evidence-based submission against every 100-point requirement.
+## What has actually completed
 
-## What is already implemented
+The eight-module notebook has been executed on a historical labeled BBC dataset by [a successful GitHub Actions workflow](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062). The results in the repository are **1,440 retained articles**, **288 held-out test articles**, **96.18% accuracy** and **0.9605 macro-F1**; they are not synthetic unit-test metrics. All eight figures, a model artifact and generated reports are in the canonical project. See [run status](docs/RUN_STATUS.md).
 
-The complete English Jupyter notebook contains all eight modules, syntactic and lexical feature analysis, VADER sentiment, an illustrative emotion dictionary, PERSON/ORG/GPE/DATE/MONEY extraction, duplicate checks, four-model comparison (including baseline), training-only five-fold CV, train-only parameter tuning, untouched holdout testing, confusion and entity plots, and an integrated prediction class. A Streamlit dashboard is included as an optional bonus opportunity.
+## Recommended submission path
 
-**Critical distinction:** An executable notebook is not the same as executed evidence. The official BBC News Train.csv is not embedded in this ZIP. Dataset authorization is not presumed. No actual BBC macro-F1 is claimed in this package.
+1. Use the course-named `ITAI2373-NewsBot-Midterm` folder in the [personal portfolio](https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm) as your individual portfolio entry. The linked canonical project contains the working source, reproducibility commands and result artifacts.
+2. Submit the [technical PDF](docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) and the required [exactly two-page reflection](docs/NewsBot_Reflection_Solo.pdf) as the instructor's Canvas instructions permit. **Read and personalize the journal first**: technical metrics can be automated, personal learning and teamwork cannot.
+3. Check that the professor has actually approved the BBC Kaggle dataset, as the assignment explicitly requires pre-approval. The [request draft](docs/Dataset_Approval_Request.md) is not approval.
+4. The work is identified as individual/solo. The original instructions say groups of 3–4; only the instructor can approve another arrangement. Do not claim collaboration that did not happen.
+5. The optional recorded 5–7 minute video can earn bonus credit if completed and linked. [Script and shot list](docs/Video_Demo_6_Minute_Script.md) are available, but the recording is not included.
+6. Open the repository and PDF links in a logged-out browser and upload the correct URLs and files to Canvas. **A code repository alone does not submit a Canvas assignment.**
 
-## Finalize in order
+## Re-execute in Colab, with all evidence
 
-1. **Instructor approval (mandatory):** Open `docs/Dataset_Approval_Request.md`, verify the dataset examples, request permission for both the dataset and a solo submission, and email it to the instructor. Wait for written authorization. The sample record IDs and titles were cross-checked against a publicly visible mirror, but the dataset must be obtained under Kaggle competition rules.
-2. **Access the data (mandatory):** Visit https://www.kaggle.com/competitions/learn-ai-bbc/data, sign in, accept the competition rules, and download `BBC News Train.csv` (1,490 labeled rows). **Do not use** `BBC News Test.csv`, which has no category labels. Never upload raw copyrighted article text to a public repository.
-3. **Colab setup:** Upload `Midterm_NewsBot_Intelligence_System.ipynb` to https://colab.research.google.com and use the Files panel to upload `BBC News Train.csv` into `/content`. The notebook accepts `ArticleId,Text,Category` and also recognizes mirrors with the text header `Article`. **Run all**. If installation requests restart, restart and run all again. No GPU or paid resources are required.
-4. **Validate real analysis:** Confirm final dataset >= 500 records and 5 labels; eight saved figures; all output files; meaningful POS, NER and VADER summaries; a realistic confusion matrix and per-category metrics; all 3 new fictional article predictions; no exceptions. Look for `PASS: notebook produced...` at the end.
-5. **Copy evidence:** From the Colab Files panel, download the `outputs/` folder's figures, metrics, `run_manifest.json` and `insights.json` to the local `outputs/` directory. Keep the large `newsbot_classifier.joblib` for your dashboard; it is intentionally ignored by Git.
-6. **Generate a genuine final report:** Install project requirements and ReportLab in your local environment, then run:
+[Open the one-click Colab notebook](https://colab.research.google.com/github/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/RUN_NEWSBOT_IN_COLAB.ipynb), select **Run all** and check the runtime report. It clones the canonical project, fetches the documented BBC competition-file mirror when needed, runs the full notebook and downloads `NewsBot_VERIFIED_EXECUTION_EVIDENCE.zip`. To comply with dataset-use terms and pre-approval, prefer uploading the official labeled Kaggle `BBC News Train.csv` if required by your instructor. The unlabeled Kaggle test CSV cannot be used for the supervised evaluation.
 
-   ```bash
-   python -m pip install -r requirements.txt reportlab pillow
-   python generate_final_report.py --group "Solo" --repo "https://github.com/USERNAME/ACTUAL_REPOSITORY"
-   ```
+For local reproduction:
+```bash
+python -m pip install -r requirements.txt nbclient nbformat reportlab pillow
+python -m spacy download en_core_web_sm
+python run_all_and_package.py --github "https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System"
+python verify_release.py
+```
 
-   The report generator imports **your actual execution results** from `outputs/`. If missing, it clearly creates an unverified draft rather than making up accuracy. Read the complete PDF and add your evidence-based methodological observations if needed.
-7. **Complete reflection:** Complete the English two-page *individual* reflection using authentic decisions, technical setbacks, real results once available, and your sole contributions. Export to exactly two pages as `NewsBot_Reflection_Solo.pdf`. Do not invent teammates or meetings; get written solo-submission approval.
-8. **Publish separately:** Publish the completed notebook and permissible results to your **public individual GitHub portfolio**, under `Mid-Term-Jose-Group-NewsBot-Intelligence-System/`. Check the URL signed out. Confirm with the instructor how Canvas should receive the mandatory reflection from an approved solo student.
-9. **Optional video:** Film 5–7 minutes with two never-before-seen articles, show results and at least two plots, explain an actual finding and business value; upload unlisted and link it in the README. The instructor notes optional video bonus points but also assigns presentation/documentation points; confirm how that affects base grading.
+The experiment compares four model families, uses five-fold cross-validation *only within training*, avoids TF-IDF leakage, and evaluates a separate holdout. Its linguistic, sentiment and NER analyses are exploratory, limited by BBC's historical single-source distribution. See [empirical results](docs/Technical_Results_Summary.md) and [quality gate](docs/FINAL_QUALITY_GATE.md).
 
-## Known boundaries and integrity
-
-- Historical BBC topics: business, entertainment, politics, sport and tech. There is **no Health category** in this selected dataset.
-- VADER is a lexical tone tool, not a truth detector or perfect description of author intent.
-- Entity co-mentions do not show real-world affiliation. POS and parse analysis is truncated at 3,500 characters per article; supervised classifier uses full text.
-- For linear SVMs, model decision margins are not calibrated probabilities; the demo's manual-review warning is an explicitly illustrative heuristic.
-- The instructor requires the student's original research, interpretation, design explanations and personal reflection. Revise these based on authentic work and what the executed cells prove.
-
-## Main files
-
-- `Midterm_NewsBot_Intelligence_System.ipynb` — expanded instructor-template notebook.
-- `generate_final_report.py` — automatic, actual-results-aware technical PDF.
-- `dashboard.py` — optional Streamlit demo (requires locally generated model).
-- `tests/` — checks for data loading, normalization and model training.
-- `docs/NewsBot_Reflection_Solo.pdf` — exactly two-page *individual working draft*.
-- `docs/Dataset_Approval_Request.md` — ready to customize and email.
-- `docs/Submission_Audit_100_Point_Rubric.md` — rubric-by-rubric check.
-
-## 2026-10-13 enhancement: Automatic end-to-end release check
-
-The notebook can fetch a **public research mirror** of the labeled competition CSV if none has been uploaded; the fetched source and SHA-256 are preserved in the manifest (see README for data rights). For the complete project folder in Colab, run `python -m pip install -r requirements.txt nbclient nbformat reportlab pillow`, install `en_core_web_sm`, and execute `python run_all_and_package.py --github "https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System"`. This creates a verified execution ZIP with the executed notebook, eight figures, metrics, report and reflection. This build's offline regression checks cannot replace the real-data run.
-
-
-## Tested automation on GitHub Actions
-
-Use the [Verified BBC Evaluation workflow](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/workflows/newsbot-verify.yml) in Actions → Run workflow. It checks local code tests first, registers a Python 3 Jupyter kernel, executes the notebook against the **real BBC training CSV**, regenerates the academic PDF and two-page reflection draft, and creates the verified evidence archive. A green workflow and outputs/run_manifest.json are required before citing holdout scores.
-
-The standalone repository is already created; do not create another. The original course rubric's portfolio-folder and solo/group restrictions are independent instructor decisions that the software cannot waive. The named student's final reflection must be personally reviewed.
+**Last reviewed:** October 2026. No claims are made of instructor permission, a live deployment or a student-recorded video.
