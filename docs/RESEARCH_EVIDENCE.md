@@ -35,12 +35,18 @@ The recommended Kaggle BBC News Classification competition dataset includes **1,
 - Cross validation: https://scikit-learn.org/stable/modules/cross_validation.html
 - Model selection: https://scikit-learn.org/stable/modules/grid_search.html
 
-## 3. Hypotheses to test (not findings until actual run)
+## 3. Historical experiment: hypotheses, measured results, and interpretation
 
-1. Category-specific news vocabulary should give TF-IDF linear models a substantial advantage over a majority-class baseline. Measure the training CV macro-F1 gap, and inspect terms actually selected.
-2. Numerical and organizational references may vary across business and politics. Test through counts of `NUM`, `ORG` and `MONEY` per analyzed article. Avoid interpreting historical co-occurrence as a relationship.
-3. Average VADER compound polarity may differ among beats, but quotations and vocabulary bias mean these differences are not automatically editorial mood. Compare means *and* per-category label proportions, not a cherry-picked single story.
-4. Adding bigrams may help or hurt predictive performance given corpus size. Evaluate both n-gram ranges using training-only folds and report the actual difference.
+The following values were exported from the successful October 2026 execution of the **historical BBC corpus** and are traceable to `outputs/insights.json`, `outputs/run_manifest.json` and the eight figures. They should not be presented as a prediction about modern journalism.
+
+1. **Category-specific vocabulary helped:** the Linear SVM training-CV macro-F1 was 0.9782 prior to tuning (0.9801 after), compared with 0.0769 for the most-frequent dummy model. Top distinctive terms included business `growth/shares/market`, politics `labour/election/blair`, tech `users/software/technology`, sport `game/win/cup`, and entertainment `film/actor/awards`. Named politics terms expose 2004–2005 UK-domain artifacts.
+2. **Part-of-speech patterns differ by category:** tech articles had 0.2620 mean NOUN proportion compared with sport at 0.2082; business NUM proportion was 0.0389 versus politics 0.0179. These are descriptive relative POS counts on truncated articles, not tests of an intrinsic genre rule. The analysis records 1,667 MONEY mentions across the analyzed sample.
+3. **Sentiment differs across the BBC beats:** mean VADER compound was entertainment 0.5900, sport 0.5492, tech 0.5330, business 0.2381 and politics 0.0541. The difference may reflect topic vocabulary and quotations; it is not ground-truth emotion or evidence of editorial bias.
+4. **Bigrams gave a modest improvement:** train-CV macro-F1 increased from 0.9776 for unigrams alone to 0.9801 for unigrams+bigrams, an absolute 0.0025 increase. No external dataset was tested.
+
+**Held-out assessment:** of 1,440 cleaned articles, 1,152 went to training and 288 to the untouched test; tuned Linear SVM achieved accuracy 0.9618 and macro-F1 0.9605 (11 misclassifications). Class F1 ranged from entertainment 0.9515 to sport 0.9784. The single typo-perturbation stress test rose slightly from 0.9605 to 0.9639 macro-F1; that is not convincing evidence of general robustness. The 800-sample bootstrap interval [0.9334, 0.9800] covers within-sample uncertainty only.
+
+For longer business consequences and NER interpretation, consult [Technical_Results_Summary.md](Technical_Results_Summary.md).
 
 ## 4. Required measurement traceability
 
