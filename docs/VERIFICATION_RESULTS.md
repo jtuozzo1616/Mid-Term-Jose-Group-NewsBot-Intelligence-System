@@ -1,13 +1,17 @@
-# Verified local technical checks — 2026-10-13
+# Verified execution log
 
-- Python files `dashboard.py`, `generate_final_report.py`, `reflection.py`, `verify_release.py`, `run_all_and_package.py`: syntax compiled.
-- Notebook `Midterm_NewsBot_Intelligence_System.ipynb`: validated with nbformat 4.5, 36 cells.
-- `python -m unittest discover -s tests -p "test_*.py" -q`: **8 tests passed**. Tests cover notebook parseability, Kaggle schema variants, duplicate removal, rejection of unlabeled test input, fallback provenance with a mocked download, real-output guard failure on missing files, the classification pipeline, and the robustness/uncertainty extension. All fixture articles are SYNTHETIC.
-- PDF check: `NewsBot_Reflection_Solo.pdf` **exactly 2 pages**.
-- PDF check: `MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf` **3 pages** in its current pre-run state; contains no manufactured macro-F1.
-- No labeled BBC dataset mounted locally, no installed trained spaCy language pipeline and no actual BBC output metrics available in this environment. The user-facing release automation requires a REAL_DATA_EXECUTED manifest and all saved files.
+- Repository: https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
+- Live run: https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38488603289 — **success**.
+- Artifact publication: https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38489270753 — **success**.
+- 10 software regression tests (synthetic fixtures): **passed**, distinct from BBC model metrics.
+- BBC dataset provenance: outputs/run_manifest.json, label counts in outputs/insights.json; SHA-256 fingerprint recorded.
+- Retained labeled BBC articles: 1440; train 1152; unseen holdout 288.
+- Selected model: tuned Linear SVM with class balancing and TF-IDF (ngram range 1–2, max_features 10000, C=2).
+- Training-only 5-fold CV macro-F1 0.9801; independent holdout macro-F1 0.9605 and accuracy 0.9618.
+- Five class-level F1 scores from outputs/per_class_metrics.csv; eight figures and source-safe aggregate tables published in outputs/.
+- Generated technical report: 7 pages; generated individual journal: **exactly 2 pages**, measured with PDF page metadata and visual render.
+- Model file: outputs/newsbot_classifier.joblib; only load after verifying the trusted repository provenance.
+- The full executed notebook and full permitted course evidence archive are accessible from the successful Actions run.
 
-**Do not interpret the synthetic fixture's high/100% accuracy as a real BBC result.**
-
-
-**Current workflow:** [Verified BBC Evaluation](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/workflows/newsbot-verify.yml). Synthetic local tests are separate from historical BBC held-out model scores. Refer to outputs/run_manifest.json and the latest green workflow for actual figures; do not substitute test-fixture scores.
+## Cautions
+The dataset is historical and from a single publisher. The emotion feature is an illustrative word lexicon; syntax triples and entity co-mentions are heuristics. Classifier scores outside the historical distribution are not calibrated real-world probabilities. Group/solo and dataset approval requirements remain administrative decisions for the instructor. The student must review and personalize the reflective journal before submission.
