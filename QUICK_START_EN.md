@@ -1,4 +1,4 @@
-**Standalone repository target:** `https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System` (not active until created).
+**Published standalone project:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
 
 # NewsBot Midterm — Exact Completion Procedure (English)
 
@@ -49,4 +49,11 @@ The complete English Jupyter notebook contains all eight modules, syntactic and 
 
 ## 2026-10-13 enhancement: Automatic end-to-end release check
 
-The notebook can fetch a **public research mirror** of the labeled competition CSV if none has been uploaded; the fetched source and SHA-256 are preserved in the manifest (see README for data rights). For the complete project folder in Colab, run `python -m pip install -r requirements.txt nbclient nbformat reportlab pillow`, install `en_core_web_sm`, and execute `python run_all_and_package.py --github "YOUR_ACTUAL_PUBLIC_REPO_URL"`. This creates a verified execution ZIP with the executed notebook, eight figures, metrics, report and reflection. This build's offline regression checks cannot replace the real-data run.
+The notebook can fetch a **public research mirror** of the labeled competition CSV if none has been uploaded; the fetched source and SHA-256 are preserved in the manifest (see README for data rights). For the complete project folder in Colab, run `python -m pip install -r requirements.txt nbclient nbformat reportlab pillow`, install `en_core_web_sm`, and execute `python run_all_and_package.py --github "https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System"`. This creates a verified execution ZIP with the executed notebook, eight figures, metrics, report and reflection. This build's offline regression checks cannot replace the real-data run.
+
+
+## Tested automation on GitHub Actions
+
+Use the [Verified BBC Evaluation workflow](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/workflows/newsbot-verify.yml) in Actions → Run workflow. It checks local code tests first, registers a Python 3 Jupyter kernel, executes the notebook against the **real BBC training CSV**, regenerates the academic PDF and two-page reflection draft, and creates the verified evidence archive. A green workflow and outputs/run_manifest.json are required before citing holdout scores.
+
+The standalone repository is already created; do not create another. The original course rubric's portfolio-folder and solo/group restrictions are independent instructor decisions that the software cannot waive. The named student's final reflection must be personally reviewed.
