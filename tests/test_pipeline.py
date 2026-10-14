@@ -105,6 +105,23 @@ class NewsBotTests(TestCase):
             self.assertEqual(len(ctx['df']),525)
             self.assertEqual(mocked.call_count,1)
 
+    def test_runner_imports_current_reflection_and_regenerates_pdf(self):
+        import ast
+        root=NOTEBOOK.parent
+        runner=(root/'run_all_and_package.py').read_text(encoding='utf-8')
+        ast.parse(runner)
+        self.assertTrue((root/'reflection.py').is_file())
+        self.assertIn('from reflection import main as refresh_reflection',runner)
+        self.assertIn('refresh_reflection()',runner)
+        self.assertIn('verify(ROOT',runner)
+
+    def test_colab_launcher_json_and_github_references(self):
+        root=NOTEBOOK.parent
+        launch=nbformat.read(root/'RUN_NEWSBOT_IN_COLAB.ipynb',as_version=4)
+        self.assertGreaterEqual(len(launch.cells),3)
+        self.assertIn('NewsBot',launch.cells[0].source)
+        self.assertIn('Mid-Term-Jose-Group-NewsBot-Intelligence-System',NB.cells[0].source)
+
     def test_quality_verifier_cannot_pass_without_real_artifacts(self):
         import sys
         sys.path.insert(0,str(NOTEBOOK.parent))
