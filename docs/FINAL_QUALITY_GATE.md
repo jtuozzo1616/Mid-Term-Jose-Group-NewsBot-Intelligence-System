@@ -1,32 +1,32 @@
-# Final 100-point rubric audit — evidence based (14 October 2026)
+# NewsBot — final evidence gate against the 100-point rubric
 
-**Course:** ITAI 2373 — NewsBot Intelligence System
-**Student:** José Miguel Tuozzo Izaguirre
-**Live repo:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
-**Green real-data run:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38488603289
-**Green artifact publication:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38489270753
+**Course:** ITAI 2373  
+**Student:** José Miguel Tuozzo Izaguirre  
+**Personal portfolio assignment folder:** https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm  
+**Canonical code/results:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System  
+**Successful full real-data workflow:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062
 
-| Rubric dimension | Maximum | Verified evidence | Remaining non-technical risk |
+| Rubric section | Max | Confirmed evidence | Remaining dependency |
 |---|---:|---|---|
-| GitHub repository | 30 | Public standalone repo; 36 notebook cells; README, module code, 10 passing software tests, 8 BBC visualizations, CSV/JSON output and reproducibility manifest | Instructor specified a folder inside an individual portfolio; this is standalone per student's request |
-| Technical implementation | 30 | All 8 NLP modules executed successfully; spaCy parsing/POS/NER, VADER, TF-IDF, 4 model families, clean stratified evaluation, 3 new fictional news inputs, packaged runner and optional Streamlit dashboard | No independent verification of behavior on other publishers or recent articles |
-| Analysis and business insights | 30 | 1440 retained historical BBC articles, Linear SVM tuned CV macro-F1 0.9801, independent 288-item test accuracy 0.9618 and macro-F1 0.9605, confusion matrix, per-class metrics and entity/lexical/syntax insights, typo stress test and bootstrap uncertainty | Human must interpret findings and explain limitations; BBC historical accuracy is not real-world effectiveness |
-| Presentation/documentation | 10 | Seven-page report grounded in measured results; exactly two-page personal reflection PDF; reproducible Colab launcher; video demonstration script and optional dashboard source | No student-recorded demo; journal needs firsthand personal review; group journal substituted by solo version |
+| Repository | 30 | Portfolio entry with the instructor's exact folder name and full-source notebook; public canonical code and reproducible evidence | Confirm Canvas URL format with teacher |
+| Technical implementation | 30 | Eight NLP modules; 10 successful synthetic regression tests; complete real-data execution; five topic labels; Streamlit source | Actual free-tier Colab execution still for student to demonstrate if specifically requested |
+| Analysis and insights | 30 | 1,440 labeled BBC articles; 1,152 train/288 holdout; tuned Linear SVM; 96.18% holdout accuracy, 0.9605 macro-F1; eight figures, class metrics, robustness and [results interpretation](Technical_Results_Summary.md) | Student must be able to explain observed findings; no claims for modern external news |
+| Presentation and documentation | 10 | Seven-page PDF report, exactly two-page reflective PDF, portfolio README, recorded run evidence and video shot list | Reflection must be personalized; **video not recorded** |
 
-## Source and data validity
+## Verification boundaries
 
-- Training source: public research copy of the labeled BBC Kaggle competition training CSV; source SHA-256 recorded in outputs/run_manifest.json: f56a65dab2ea728505a639d2186a2b2f1c0939f28e8e89b5ed1c1fe9520b1323.
-- The original 1,490-row file retained **1,440** articles after cleaning/duplicate removal; 1,152 were used for training and 288 held out for the final assessment. Five official categories: business, entertainment, politics, sport, tech (not health).
-- 10 local synthetic-fixture tests passed and the complete data workflow completed on GitHub Actions. Synthetic-fixture evaluation must never be submitted as historical BBC performance.
-- Class F1: business 0.9630, entertainment 0.9515, politics 0.9524, sport 0.9784, tech 0.9574.
-- The two-page reflection discusses personal/project responsibility but requires the actual student to confirm what work they did and what they learned; no fictitious team meetings are claimed.
-- The GitHub Actions evidence archive has the executed notebook, eight figures, CSVs, trained model, seven-page report and two-page reflection. Source news texts and error excerpts must not be published as public repository files.
+The latest passing GitHub Actions run includes ten software tests (synthetic fixtures), execution of the *historical BBC* labeled dataset notebook, real-output verification, aggregate result publication and executed notebook archive. The original 1,490 labeled records yielded **1,440 after exact-text deduplication**, five category labels, 1,152 train and 288 held out. Source SHA-256: `f56a65dab2ea728505a639d2186a2b2f1c0939f28e8e89b5ed1c1fe9520b1323`.
 
-## Remaining before final submission
+Holdout F1: business 0.9630; entertainment 0.9515; politics 0.9524; sport 0.9784; tech 0.9574. **11 of 288** held-out articles were classified incorrectly. This is within-source historical performance, not external validation or accuracy on today's news.
 
-1. Obtain professor acceptance of **solo instead of teams of 3–4**, of the **Kaggle dataset** and of the **standalone repository rather than an individual portfolio folder**, as required by the written rubric.
-2. Personally review the 2-page journal; update it to describe your real decisions, obstacles and learning. Explicitly disclose AI assistance as required by your course.
-3. Optionally record the requested 5–7 minute original screen/video demonstration if seeking bonus credit.
-4. Submit the **public URL** and the exact **reflection PDF** in Canvas as the instructor directs.
+The root notebook intentionally has no stored output cells; generated PNGs/CSVs and a fully executed notebook are separately available through the passing workflow. Do **not** misrepresent an unexecuted GitHub notebook preview as a failed evaluation.
 
-This audit is evidence of implemented technical and presentation elements, **not a guarantee of a 100/100 grade**.
+## Remaining human actions
+
+1. **Get dataset permission:** the written instructor brief explicitly requires approval of the Kaggle dataset **before using it**. A request draft is included but a professor reply is not.
+2. **Individual submission:** the published class brief expects 3–4 students. This repository discloses individual work; it does not falsely claim professor authorization or teammates.
+3. **Personal reflection:** review the two-page PDF and ensure every contribution/lesson is true; disclose AI assistance as your course requires.
+4. **Canvas:** actually submit the portfolio URL, required PDF(s) and any other requested links. GitHub itself cannot perform the Canvas hand-in.
+5. **Optional video:** record a genuine 5–7-minute demonstration and add an accessible link to claim the video bonus; script alone does not qualify.
+
+**Verdict:** technical and empirical components have strong documented support. Final 100/100 cannot be promised: the professor decides acceptance, rubric deductions and bonus eligibility.
