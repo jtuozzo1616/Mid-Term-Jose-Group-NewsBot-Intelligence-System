@@ -1,5 +1,4 @@
-# NewsBot — evidence-based alignment with the instructor's 100-point rubric
-
+# NewsBot — evidence-based alignment 
 **Student:** José Miguel Tuozzo Izaguirre | **Course:** ITAI 2373  
 **Portfolio:** https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm  
 **Canonical source:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
