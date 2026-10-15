@@ -6,7 +6,7 @@
 | Instructor rubric | Maximum | Evidence currently available |
 |---|---:|---|
 | GitHub repository | 30 | Named public portfolio folder; canonical notebook, README, code, automated tests, charts, aggregate CSV/JSON, experiment manifest |
-| Technical implementation | 30 | All eight NLP modules completed in a [successful real-data run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062); end-to-end demo on fictional articles; optional dashboard source |
+| Technical implementation | 30 | All eight NLP modules completed in a [successful real-data run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890); end-to-end demo on fictional articles; optional dashboard source |
 | Analysis and insights | 30 | 1,440 BBC articles, tuned SVM, holdout accuracy **0.9618**, macro-F1 **0.9605**, class-level and confusion analysis, ablation, actual category-level linguistic statistics |
 | Presentation and documentation | 10 | Seven-page technical PDF, two-page reflective journal draft, README, Colab launcher and demo script; **no recorded demo evidenced** |
 
