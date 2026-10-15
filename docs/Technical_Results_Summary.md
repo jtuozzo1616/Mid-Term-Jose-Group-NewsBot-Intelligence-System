@@ -2,7 +2,7 @@
 
 **Course:** ITAI 2373, Modules 1–8  
 **Student:** José Miguel Tuozzo Izaguirre  
-**Evidence:** [real-data successful workflow](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062), [run manifest](../outputs/run_manifest.json), [full analytical notebook](../Midterm_NewsBot_Intelligence_System.ipynb), [technical PDF](MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf).  
+**Evidence:** [real-data successful workflow](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890), [run manifest](../outputs/run_manifest.json), [full analytical notebook](../Midterm_NewsBot_Intelligence_System.ipynb), [technical PDF](MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf).  
 **Scope:** historical BBC articles (2004–2005), **not** live/news-of-2026 reporting.
 
 ## 1. Evaluation design and dataset provenance
