@@ -38,6 +38,8 @@ The pipeline removes 50 duplicate articles from the 1,490-row labeled BBC file, 
 
 [Per-class precision/recall/F1](../outputs/per_class_metrics.csv) · [Machine-readable metrics](../outputs/holdout_metrics.json) · [Scientific interpretation](Technical_Results_Summary.md)
 
+**Why the mistakes matter:** [Read the reviewed 11-error case study](HOLDOUT_ERROR_CASE_STUDY.md) or [inspect the count-only error directions](../outputs/error_directions.csv). Entertainment had **four missed articles** out of 53; sport had **three false deliveries** despite detecting all 68 actual sport stories. These distinctions motivate human review of ambiguous cross-topic articles.
+
 ## 5 — Review the written submission and video
 
 [Technical report PDF](MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) · [Two-page reflection PDF](NewsBot_Reflection_Solo.pdf) · [Video demonstration outline](Video_Demo_6_Minute_Script.md)
