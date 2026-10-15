@@ -1,0 +1,10 @@
+true_label,predicted_label,error_count
+tech,business,2
+entertainment,tech,2
+business,sport,1
+politics,entertainment,1
+entertainment,politics,1
+politics,business,1
+entertainment,sport,1
+politics,sport,1
+business,politics,1
