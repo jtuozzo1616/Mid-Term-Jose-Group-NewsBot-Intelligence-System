@@ -2,7 +2,7 @@
 
 - **Main repository:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System
 - **Required personal portfolio folder:** https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm
-- **Most recent full successful real-data run used in this audit:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062 — `completed / success`.
+- **Most recent full successful real-data run used in this audit:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890 — `completed / success`.
 - **Ten software regression tests on synthetic fixture data:** passed; **these are not BBC evaluation results**.
 - **All eight NLP modules:** executed on the real historical labeled BBC competition-file corpus, with output verification and archived executed notebook.
 - **Original labeled input:** 1,490 articles. Removed 50 exact-text duplicates, 0 missing records; retained 1,440 labeled articles in five categories.
