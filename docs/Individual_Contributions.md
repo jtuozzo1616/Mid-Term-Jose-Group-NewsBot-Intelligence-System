@@ -17,7 +17,7 @@ This repository is explicitly presented as an individual effort. No fictitious t
 | VADER, lexical emotion proxy and entity extraction | Notebook Modules 6, 8 (cells 14–19) | `outputs/03_linguistic_sentiment.png`, `outputs/04_ner_analysis.png` |
 | Four classifier families, CV, ablation, holdout | Notebook Module 7 (cells 20–25) | `outputs/model_cv_comparison.csv`, `outputs/holdout_metrics.json`, `outputs/per_class_metrics.csv` |
 | Integrated article prediction, regression checks | Notebook cells 29–33; `tests/test_pipeline.py`; `dashboard.py` | [successful integration workflow](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890) |
-| Reports, interpretation and delivery | `generate_final_report.py`, `reflection.py`, `docs/Technical_Results_Summary.md` | Seven-page technical report and a two-page **personal-review-required** reflection |
+| Reports, interpretation and delivery | `generate_final_report.py`, `reflection.py`, `docs/Technical_Results_Summary.md` | Eight-page technical report and a two-page **personal-review-required** reflection |
 
 **Technical verification:** 10 automated tests passed in CI; all eight NLP modules executed against the BBC labeled corpus. The published holdout accuracy is 96.18% and macro-F1 is 0.9605. Synthetic test data are never cited as real BBC evaluation.
 
