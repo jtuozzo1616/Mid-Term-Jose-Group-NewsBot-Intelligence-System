@@ -13,6 +13,8 @@ on:
       - "generate_final_report.py"
       - "requirements.txt"
       - "tests/**"
+      - "verify_error_audit.py"
+      - "outputs/error_directions.csv"
 
 concurrency:
   group: newsbot-bbc-evaluation
@@ -44,6 +46,8 @@ jobs:
         run: python -u run_all_and_package.py --github https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System --timeout 1800
       - name: Verify required real outputs before publication
         run: python verify_release.py
+      - name: Verify all 11 holdout error directions against per-class metrics
+        run: python verify_error_audit.py
       - name: Publish aggregate evidence to the public repository
         run: |
           git config user.name "github-actions[bot]"
