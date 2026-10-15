@@ -6,7 +6,7 @@
 ## Inspect the finished work
 
 - **Notebook:** [Midterm_NewsBot_Intelligence_System.ipynb](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/Midterm_NewsBot_Intelligence_System.ipynb) — complete code for all eight NLP modules.
-- **Completed execution:** [GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062) — open **Artifacts** and download `NewsBot-real-BBC-execution-evidence` to see the executed notebook.
+- **Completed execution:** [GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890) — open **Artifacts** and download `NewsBot-real-BBC-execution-evidence` to see the executed notebook.
 - **Measured results:** [outputs/](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/tree/main/outputs) — eight figures, class-level metrics, confusion matrix, model and run manifest.
 - **Reports:** [technical PDF](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) and [two-page reflection](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/NewsBot_Reflection_Solo.pdf).
 
