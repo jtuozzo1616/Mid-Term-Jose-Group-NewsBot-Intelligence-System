@@ -35,9 +35,13 @@ The labeled BBC training file contains 1,490 articles from five categories: **bu
 | Most reliable class by test F1 | sport — 0.9784 |
 | Class needing the most attention by test F1 | entertainment — 0.9515 |
 
-The strongest signal is that a simple TF-IDF/SVM pipeline can organize articles effectively **within this historical BBC dataset**. Entertainment had the lowest F1, so it would be sensible to flag uncertain cross-category stories for editorial review rather than silently routing them.
+The strongest signal is that a simple TF-IDF/SVM pipeline can organize articles effectively **within this historical BBC dataset**. However, the **11 holdout errors** have an interpretable pattern: game-sector financial news sometimes became *business*, and entertainment stories involving digital media sometimes became *tech*. Four entertainment articles were missed, while three non-sport articles were mistakenly sent to sport despite **100% sport recall**. The proposed editorial safeguard is human review for overlapping topics, not automatic reassignment.
 
-[Confusion matrix](outputs/06_confusion_matrix.png) · [Model comparison](outputs/05_model_cv_comparison.png) · [Per-class evaluation](outputs/per_class_metrics.csv) · [Experiment manifest](outputs/run_manifest.json) · [Detailed findings](docs/Technical_Results_Summary.md)
+**[Read the evidence-based analysis of all 11 mistakes](docs/HOLDOUT_ERROR_CASE_STUDY.md)** · [Verified aggregate error directions](outputs/error_directions.csv) · [Confusion matrix](outputs/06_confusion_matrix.png)
+
+![Actual 288-article BBC holdout confusion matrix](outputs/06_confusion_matrix.png)
+
+[Model comparison](outputs/05_model_cv_comparison.png) · [Per-class evaluation](outputs/per_class_metrics.csv) · [Experiment manifest](outputs/run_manifest.json) · [Detailed findings](docs/Technical_Results_Summary.md)
 
 These are results from a completed BBC-data run, not the synthetic articles used in software tests. The [execution record](docs/RUN_STATUS.md) explains the dataset origin, software versions and evidence.
 
