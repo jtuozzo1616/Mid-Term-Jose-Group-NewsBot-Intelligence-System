@@ -7,7 +7,7 @@ A successful [full evaluation workflow](https://github.com/jtuozzo1616/Mid-Term-
 **Important distinctions:**
 - The synthetic unit tests verify software paths; they are not dataset performance.
 - The root Jupyter notebook in Git is a clean *runnable* notebook with no saved cell outputs; the *executed* notebook is in the successful Actions run's downloadable evidence archive. Figures and aggregated scores are published separately.
-- A seven-page technical PDF and an exactly two-page reflection PDF are present. The reflection remains subject to the student's factual, firsthand review.
+- A eight-page technical PDF and an exactly two-page reflection PDF are present. The reflection remains subject to the student's factual, firsthand review.
 - Results measure in-distribution BBC performance only. No external multi-publisher or 2026 generalization has been tested.
 - The optional video is a script, not a recorded video. Instructor permissions and Canvas submission are not proven by CI.
 
