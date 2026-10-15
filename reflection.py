@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Produce an honestly labeled, two-page individual reflection draft.
+"""Generate a two-page reflection draft grounded in verified NewsBot work.
 
-This adaptation of the instructor's group journal requires solo-submission permission.
-No teamwork or empirical evaluation outcomes are fabricated.
+Personal observations must be verified by the named student before submission.
+The generator uses no invented experiments or collaborators.
 """
 from pathlib import Path
 import json
@@ -24,13 +24,13 @@ if FONTFILE.exists():
 else: FONT='Helvetica'; BOLD='Helvetica-Bold'
 NAVY=colors.HexColor('#15314C'); ACCENT=colors.HexColor('#087C91'); GRAY=colors.HexColor('#566574')
 styles=getSampleStyleSheet()
-styles.add(ParagraphStyle(name='TopSolo',fontName=BOLD,fontSize=19,leading=24,spaceAfter=9,textColor=NAVY))
-styles.add(ParagraphStyle(name='SecondSolo',fontName=BOLD,fontSize=16,leading=21,spaceAfter=9,textColor=NAVY))
+styles.add(ParagraphStyle(name='TopSolo',fontName=BOLD,fontSize=17,leading=21,spaceAfter=7,textColor=NAVY))
+styles.add(ParagraphStyle(name='SecondSolo',fontName=BOLD,fontSize=15,leading=19,spaceAfter=7,textColor=NAVY))
 styles.add(ParagraphStyle(name='MetaSolo',fontName=FONT,fontSize=8.4,leading=12.3,spaceAfter=5,textColor=GRAY))
 styles.add(ParagraphStyle(name='NoteSolo',fontName=BOLD,fontSize=8.1,leading=12,spaceAfter=7,textColor=ACCENT))
-styles.add(ParagraphStyle(name='HeadSolo',fontName=BOLD,fontSize=10.6,leading=14.5,spaceBefore=10,spaceAfter=4,textColor=NAVY,keepWithNext=True))
-styles.add(ParagraphStyle(name='BodySolo',fontName=FONT,fontSize=8.65,leading=13.35,spaceAfter=7.4,alignment=TA_LEFT))
-styles.add(ParagraphStyle(name='SmallSolo',fontName=FONT,fontSize=8.15,leading=12,spaceAfter=6,textColor=GRAY))
+styles.add(ParagraphStyle(name='HeadSolo',fontName=BOLD,fontSize=10.15,leading=13,spaceBefore=6.3,spaceAfter=3,textColor=NAVY,keepWithNext=True))
+styles.add(ParagraphStyle(name='BodySolo',fontName=FONT,fontSize=8.45,leading=12.15,spaceAfter=4.7,alignment=TA_LEFT))
+styles.add(ParagraphStyle(name='SmallSolo',fontName=FONT,fontSize=7.7,leading=10.5,spaceAfter=4,textColor=GRAY))
 def P(text,style='BodySolo'):return Paragraph(text,styles[style])
 def H(text):return P(text,'HeadSolo')
 def foot(canv,doc):
@@ -48,34 +48,36 @@ def main():
         actual=verify(ROOT/'outputs')
     except (AssertionError,KeyError,ValueError,FileNotFoundError,ImportError):
         pass
+    if actual is None:
+        raise RuntimeError('Real-data results must be verified before generating the reflection.')
     doc=SimpleDocTemplate(str(DEST),pagesize=letter,leftMargin=51,rightMargin=51,topMargin=47,bottomMargin=58,
-        title='NewsBot Individual Reflective Journal - 2 Pages',author='José Miguel Tuozzo Izaguirre')
+        title='What NewsBot Taught Me - Personal Reflection',author='José Miguel Tuozzo Izaguirre')
     blocks=[
-        P('Individual Reflective Journal','TopSolo'),
-        P('NewsBot Intelligence System | ITAI 2373 | October 2026','MetaSolo'),
+        P('What NewsBot Taught Me','TopSolo'),
+        P('Personal Reflective Journal | ITAI 2373 | October 2026','MetaSolo'),
         P('<b>Student:</b> José Miguel Tuozzo Izaguirre','MetaSolo'),
-        P('Project reflection | Data analysis, system integration, evaluation and next steps','NoteSolo'),
-        H('1. Project organization and approach'),
-        P('NewsBot is organized around the eight course modules, with each stage producing information needed by the next. Article preparation feeds the linguistic analyses and the classification pipeline; model evaluation then checks whether the final predictions hold up on articles withheld from training. Keeping the modules separate made it easier to trace an unexpected result back to its source. Automated checks and readable intermediate outputs are particularly useful when reviewing a project without the benefit of informal feedback from classmates.'),
-        H('2. Technical integration challenges'),
-        P('One important design problem is that different NLP operations need different representations of the same article. Token and lemma normalization help TF-IDF inspection, but entity recognition, syntax and sentiment benefit from original-case text. The design therefore keeps original and normalized views rather than applying aggressive cleanup everywhere. To prevent data leakage, the supervised TF-IDF vectorizer is fitted inside each training fold. Classification comparisons use training-only cross-validation, a tuned model and a separate holdout split.'),
-        P(('Another challenge is reliability across data sources and runtime environments. The project checks for empty text, inconsistent column names, duplicates and missing labels. The actual historical BBC run analyzed <b>'+str(actual['rows'])+'</b> articles and achieved holdout macro-F1 <b>'+f"{actual['holdout_macro_f1']:.4f}"+'</b>, whereas synthetic regression tests merely exercise code paths. The results cannot establish modern-news performance.') if actual else 'Another challenge is reliability across data sources and runtime environments. The project checks for empty text, inconsistent column names, duplicates and missing labels. Local regression tests exercised the loader and model-training path using synthetic fixtures; these tests do <b>not</b> establish performance on BBC articles. Actual spaCy annotation, resource availability and full notebook execution remain to be checked in Google Colab with the licensed dataset.'),
-        H('3. Business value and evidence limits'),
-        P('NewsBot is intended for newsroom triage and media research, not automated fact-checking. It can suggest an editorial category while offering context through vocabulary, sentiment and named entities. The completed BBC evaluation achieved 96.18% holdout accuracy and a macro-F1 of 0.9605; entertainment had the lowest category F1 at 0.9515. These are encouraging results for historical BBC articles, but the dataset contains older material from one publisher. Any practical use would need human review and testing against newer, more varied sources.'),
+        H("1. Collaboration, planning, and ownership"),
+        P("The most important shift in my thinking was learning to see NewsBot as one system instead of eight unrelated assignments. Each module has a purpose, but the value appears when the results support one another. A clean article becomes a reliable input for linguistic analysis; TF-IDF turns text into features; the classifier suggests a category; and sentiment and entities give a reader more context. Planning these connections taught me to ask what a result would mean to an editor before deciding what to calculate. I also learned that organizing work into small, inspectable stages makes problems easier to locate than trying to debug a large notebook all at once."),
+        P("Because I am presenting the project under my own name, I need to be able to explain the design and defend the findings rather than rely on a checklist of completed cells. I have learned to use documentation, clear variable names, repeated tests, and the published execution record as ways to make technical work open to review. These habits matter whether I work independently or join a development team in the future."),
+        H("2. Technical integration: what clean text really means"),
+        P("Preprocessing taught me that removing more text is not always an improvement. URLs, HTML fragments, missing fields and duplicate articles can distort an analysis, yet capital letters, dates, numbers and the original wording still matter to named-entity recognition and dependency parsing. I therefore see the value of keeping different representations of an article for different tasks, rather than forcing every module to use one aggressively cleaned string. Tokenization, stop words and lemmatization help organize vocabulary; spaCy's POS and dependency labels offer another view of sentence structure, but neither should be mistaken for perfect understanding."),
+        P("The strongest methodological lesson was about <b>data leakage</b>. A model can look impressive for the wrong reason if the vocabulary is learned from articles that later appear in the test set. In NewsBot, predictive TF-IDF belongs inside the training folds, while the final holdout stays separate. Comparing a dummy baseline, Naive Bayes, Logistic Regression and Linear SVM then becomes a meaningful experiment rather than simply choosing whichever score looks best. Working within Colab-style computing limits also showed me why shared spaCy processing, sparse features and controlled text lengths are practical design decisions."),
+        H("3. Business value and the meaning of a good result"),
+        P("The recorded BBC experiment retained <b>1,440</b> articles after removing exact duplicates. Its Linear SVM classified <b>277 of 288</b> held-out articles correctly: <b>96.18% accuracy</b> and <b>0.9605 macro-F1</b>. Those numbers are satisfying, but the confusion matrix changed how I interpret success. Eleven articles were still assigned to the wrong category, and entertainment had the weakest class F1, approximately <b>0.9515</b>. I learned to look for the cases behind the average, because an editorial team would experience the individual routing mistakes rather than an abstract percentage."),
+        P("The other modules taught me similar caution. VADER captures word-level tone, not factual truth or the writer's opinion. An entity pair appearing together in a story is not proof of a relationship, and names such as 'Blair' and 'Tony Blair' can represent the same person under different forms. NewsBot can assist article triage and media research, but it should support decisions that people can check, not replace editorial judgment."),
         PageBreak(),
-        P('Evaluation, Learning and Next Steps','SecondSolo'),
-        P('José Miguel Tuozzo Izaguirre | ITAI 2373','MetaSolo'),
-        P('Measured findings are supported by the reproducible notebook and execution record.' if actual else 'This draft requires a successful dataset run before it can discuss measured outcomes.','NoteSolo'),
-        H('4. Connecting the components'),
-        P('The integrated system brings several different outputs together in a form that an editor can understand: a suggested news desk, lexical sentiment, notable entities and basic grammatical patterns. The reusable inference class applies these functions to a new article, while the notebooks and saved results make the process inspectable. The design also separates software tests from experiments on labeled BBC news, since a function passing a test does not establish that a prediction is accurate. For the final presentation, each claim should be connected to a visible output or a clearly explained limitation.'),
-        P(('The experiment manifest records the source fingerprint, model settings and holdout results. In the 288-article test set, 277 articles received the correct category and 11 did not. The difference between this measured evaluation and the fictional demo inputs matters: the demos show what the pipeline can return, but only labeled test articles support an accuracy estimate.') if actual else 'The code and sample articles show how the pipeline is intended to behave. A reliable performance claim, however, requires a completed experiment on labeled articles and inspection of the resulting mistakes.'),
-        H('5. Future improvements'),
-        P('The first priority after a successful Colab run should be <b>out-of-domain evaluation</b>: test on newer, legally reusable articles from more than one publisher and compare class-level recall and macro-F1 against the historical BBC holdout. This directly measures whether the model transfers to realistic editorial work. Later improvements could add calibrated class confidence, a human-review or abstention policy, entity alias resolution, duplicate-story clustering and more context-sensitive emotion methods. Each enhancement should be justified by an observed failure mode rather than added only to increase feature count.'),
-        H('6. Professional development reflection'),
-        P('The central learning opportunity is the difference between connecting library calls and producing a trustworthy analysis. A reproducible workflow must show exactly which transformations are used for description, which belong within cross-validation, and which data were withheld for final evaluation. POS, dependency parsing and NER can generate useful structured outputs, but heuristic labels and co-mentions should not be described as verified semantic relationships. Similarly, a high in-domain accuracy result would not by itself make NewsBot safe for production decisions.'),
-        P('A strong demonstration should show the predictions on new examples, then connect them to the confusion matrix and the errors observed in the held-out articles. That makes the limitations visible rather than hiding them behind a single accuracy number. The next meaningful improvement would be testing new publishers and time periods before relying on NewsBot for editorial decisions.'),
-        H('Submission note'),
-        P('The assignment specifies group work and instructor approval for Kaggle data. Confirm any permitted individual arrangement and dataset approval, then review this journal so that its descriptions match firsthand experience and the course academic-integrity policy.','SmallSolo'),
+        P('Learning Beyond the Model','SecondSolo'),
+        P('NewsBot Intelligence System | Reflection continued','MetaSolo'),
+        H("4. Integration, debugging, and accountability"),
+        P("Putting the modules together helped me recognize the difference between a convincing demonstration and a trustworthy evaluation. The fictional technology, football and politics articles show how the full pipeline responds to new text. They do not prove accuracy. That requires labeled articles held out from training, per-category scores, error analysis and a reproducible record of the run. I also learned why passing software tests is not the same as measuring a model: tests can confirm that code paths work, while held-out evaluation asks whether the predictions are actually useful."),
+        P("Reviewing the GitHub Actions evidence added another lesson. An execution can successfully process the BBC data and still have trouble publishing files if the repository changes during the run. Seeing an error annotation alongside an overall green status showed me that I should read individual step logs, not rely on a badge alone. The resulting workflow, figures, model artifact and report make the results easier for another person to inspect. For me, good documentation is part of the engineering work, not something added only at the end."),
+        H("5. What I would improve next"),
+        P("My next experiment would use newer, appropriately licensed articles from several publishers. The BBC material comes from 2004-2005, so even strong results on its own holdout cannot show how NewsBot handles today's vocabulary, changing events or different editorial styles. I would compare macro-F1 and category-specific recall across sources, inspect incorrect predictions, and build a human-review option for ambiguous stories. I would also test whether confidence calibration helps decide when the system should abstain rather than force a category."),
+        P("For information extraction, I would work on resolving entity aliases and evaluating recognition mistakes. For sentiment, I would compare VADER with methods that better handle quotations, context and irony. I would prioritize changes supported by measurable errors rather than adding features simply to make the project look more complex."),
+        H("6. Professional growth and what I take forward"),
+        P("NewsBot changed how I think about an AI project being 'finished.' A notebook that runs is a starting point; a credible project explains where the data came from, why a model was selected, what its mistakes look like, and whether another person can reproduce the result. I have gained a clearer understanding of how preprocessing, vectorization, grammatical analysis, sentiment, classification and NER complement one another, and why each output needs careful interpretation. Just as importantly, I am learning to communicate those details without exaggerating what the model knows."),
+        P("Preparing this project for GitHub and a short video also pushed me to think about my audience. A professor or future employer should be able to find the code, follow the methodology and see the evidence without guessing where the results are. AI-assisted tools can help explain syntax and debug implementation issues, but I remain responsible for checking the outputs, understanding the choices and making my reflection genuinely my own. The lesson I want to carry forward is that technical ambition matters most when it is matched by transparency, patience, and a willingness to investigate mistakes."),
+        P('Before submission: verify that the personal observations above reflect your own experience, and confirm the instructor\'s required dataset and project-submission approvals.','SmallSolo'),
     ]
     doc.build(blocks,onFirstPage=foot,onLaterPages=foot)
     print(DEST)
