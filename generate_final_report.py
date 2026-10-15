@@ -57,7 +57,7 @@ def create(argv=None):
     parser.add_argument('--output',default=None)
     args=parser.parse_args(argv)
     outs=BASE/'outputs'; docs=BASE/'docs';docs.mkdir(exist_ok=True)
-    missing=['insights.json','run_manifest.json','per_class_metrics.csv','model_cv_comparison.csv','feature_ablation.csv','robustness_stress_test.csv','bootstrap_uncertainty.json']
+    missing=['insights.json','run_manifest.json','per_class_metrics.csv','model_cv_comparison.csv','feature_ablation.csv','robustness_stress_test.csv','bootstrap_uncertainty.json','error_directions.csv']
     missing=[name for name in missing if not (outs/name).is_file()]
     verified=not missing
     if verified:
@@ -67,13 +67,16 @@ def create(argv=None):
         except (AssertionError,ValueError,KeyError,FileNotFoundError) as exc:
             print('Empirical evidence incomplete:',exc)
             verified=False
-    ins={};run={};classes=pd.DataFrame();cv=pd.DataFrame();ablation=pd.DataFrame()
+    ins={};run={};classes=pd.DataFrame();cv=pd.DataFrame();ablation=pd.DataFrame();errors=pd.DataFrame()
     if verified:
         ins=json.loads((outs/'insights.json').read_text(encoding='utf-8'))
         run=json.loads((outs/'run_manifest.json').read_text(encoding='utf-8'))
         classes=pd.read_csv(outs/'per_class_metrics.csv')
         cv=pd.read_csv(outs/'model_cv_comparison.csv')
         ablation=pd.read_csv(outs/'feature_ablation.csv')
+        errors=pd.read_csv(outs/'error_directions.csv')
+        from verify_error_audit import verify as verify_error_directions
+        verify_error_directions(outs)
         required=['cv_macro_f1','holdout_accuracy','holdout_macro_f1','selected_model','rows']
         if not all(k in run for k in required):raise ValueError('Missing fields in run manifest. Rerun notebook.')
         if len(classes)<4 or classes.f1.isna().any():raise ValueError('Incomplete per-class results. Rerun notebook.')
@@ -130,7 +133,18 @@ def create(argv=None):
             st.append(p('TRAIN-CV unigram macro-F1: '+f"{a.get(1,float('nan')):.4f}"+'; unigram+bigram macro-F1: '+f"{a.get(2,float('nan')):.4f}"+'. This comparison is descriptive about feature design and is not evaluated on the final holdout.'))
         st.append(p('Selected model parameters: '+safe(str(run.get('selected_parameters','not exported')))+'. Corpus source recorded as '+safe(run.get('dataset_origin','unknown'))+' with SHA-256 '+safe(run.get('source_file_sha256','?')[:16])+'… (full fingerprint in manifest).'))
         top=classes.sort_values('f1').iloc[0]
-        st.append(p('The lowest-F1 category is <b>'+safe(top.category)+'</b> (F1 = '+f'{top.f1:.3f}'+'). This category is a priority for manual review and qualitative inspection of wrong predictions.'))
+        st.append(h('Diagnosis | What the 11 mistakes reveal'))
+        st.append(p('The holdout confusion matrix contains <b>11 misclassified articles</b> (277/288 correct). Rather than treating each error as a random exception, the reviewed examples show potentially overlapping news desks: game-industry financial pressure, sports-club stock-market activity, televised sport and media-policy oversight. These are <b>interpretations of observed topics</b>, not verified explanations of the learned decision boundary.'))
+        pairs=errors.groupby(['true_label','predicted_label'],as_index=False).error_count.sum().sort_values(['error_count','true_label'],ascending=[False,True])
+        error_rows=[['Actual label','Predicted label','Errors']]
+        for _,item in pairs.iterrows():
+            error_rows.append([str(item.true_label),str(item.predicted_label),str(int(item.error_count))])
+        errtab=Table([[para(c,'CellNB') for c in row] for row in error_rows],colWidths=[140,140,72],hAlign='LEFT',repeatRows=1)
+        errtab.setStyle(TableStyle([('BACKGROUND',(0,0),(-1,0),colors.HexColor('#dff0f3')),('GRID',(0,0),(-1,-1),.25,colors.HexColor('#c8d4db')),('TOPPADDING',(0,0),(-1,-1),3),('BOTTOMPADDING',(0,0),(-1,-1),3)]))
+        st.append(errtab)
+        st.append(p('The most frequent directions are <b>tech to business</b> (2) and <b>entertainment to tech</b> (2); seven other directions occur once. In the entertainment class, <b>4 of 53</b> real articles were missed (recall 92.45%). Every one of the <b>68 actual sport articles</b> was found (recall 100%), but <b>three non-sport articles were incorrectly sent to sport</b>, reducing sport precision to 95.77%.'))
+        st.append(p('Editorial implication: compare false deliveries and missed stories by desk, and send ambiguous cross-topic cases for human review. The model\'s SVM margins have not been calibrated as probabilities, so any automated threshold should be defined using new validation data, <b>not tuned on the holdout</b>. Full, copyright-safe error breakdown: <link href="https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/HOLDOUT_ERROR_CASE_STUDY.md" color="#087C91">NewsBot error case study on GitHub</link>.'))
+
         for f in ['05_model_cv_comparison.png','06_confusion_matrix.png']:
             if (outs/f).is_file():st.extend([Spacer(1,9),img(outs/f,maxh=3.6*inch)])
     if verified:
@@ -159,7 +173,7 @@ def create(argv=None):
             if len(cats)>1:st.append(p('Descriptive POS contrast: the proportion of proper-noun tags (PROPN) was lowest for <b>'+safe(cats[0])+'</b> ('+f"{pos['PROPN'][cats[0]]:.3f}"+') and highest for <b>'+safe(cats[-1])+'</b> ('+f"{pos['PROPN'][cats[-1]]:.3f}"+'). Linguistic annotations cover a limited text prefix and can be affected by source lowercasing.'))
         conf=ins.get('frequent_confusions',[])
         if conf:
-            st.append(p('Most common holdout label confusion: actual <b>'+safe(conf[0]['actual'])+'</b> predicted <b>'+safe(conf[0]['predicted'])+'</b> ('+str(conf[0]['count'])+' examples). Inspect `error_analysis_excerpt.csv` for actual passages; routing to these desks needs human checks.'))
+            st.append(p('The confusion directions are analyzed above using a count-only audit. Original news excerpts remain restricted to the execution evidence archive; only aggregate labels and careful topical paraphrases are published.'))
         else:
             st.append(p('There were no misclassified holdout examples recorded. This is not proof that predictions generalize to new publishers or current events.'))
         for figure,explanation in [('02_tfidf_category_terms.png','Distinctive historical category terms'),('03_linguistic_sentiment.png','POS and sentiment patterns by topic'),('04_ner_analysis.png','Named entity counts and frequency'),('07_entity_comentions.png','Illustrative co-mention graph; not factual links')]:
