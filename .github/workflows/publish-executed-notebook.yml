@@ -1,0 +1,64 @@
+name: Publish Executed Notebook (Permanent Evidence)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/publish-executed-notebook.yml"
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish-notebook:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out project
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Download verified full-run artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: NewsBot-real-BBC-execution-evidence
+          run-id: 38778575638
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/newsbot-verified-run
+      - name: Validate and publish completed notebook
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib, shutil
+          src=pathlib.Path("/tmp/newsbot-verified-run/Midterm_NewsBot_Intelligence_System_EXECUTED.ipynb")
+          if not src.is_file():
+              raise SystemExit("Verified artifact did not include the executed notebook")
+          nb=json.loads(src.read_text(encoding="utf-8"))
+          cells=nb.get("cells",[])
+          code=[c for c in cells if c.get("cell_type")=="code"]
+          missing=[i for i,c in enumerate(code) if c.get("execution_count") is None or not c.get("outputs")]
+          errors=[o for c in code for o in c.get("outputs",[]) if o.get("output_type")=="error"]
+          if len(cells)!=36 or len(code)!=21 or missing or errors:
+              raise SystemExit(f"Incomplete evidence: cells={len(cells)}, code={len(code)}, missing={missing}, errors={len(errors)}")
+          text=src.read_text(encoding="utf-8")
+          if "PASS: notebook produced 8 figures" not in text:
+              raise SystemExit("Notebook release verification message not present")
+          out=pathlib.Path("docs/NewsBot_Executed_Results.ipynb")
+          out.parent.mkdir(parents=True, exist_ok=True)
+          shutil.copyfile(src,out)
+          print("PASS: permanent executed notebook",out,src.stat().st_size,"bytes")
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f docs/NewsBot_Executed_Results.ipynb
+          if git diff --cached --quiet; then
+            echo "Executed evidence already up to date"
+          else
+            git commit -m "docs: publish executed BBC notebook with verified cell outputs [skip ci]"
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
+          fi
