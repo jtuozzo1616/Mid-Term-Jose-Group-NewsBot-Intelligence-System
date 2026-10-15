@@ -5,7 +5,7 @@ Checkmarks below report observable repository evidence, **not** instructor permi
 ## Verified from published project
 
 - [x] Public standalone source repository with named student, README and reproducible notebooks.
-- [x] Real-data eight-module notebook execution in GitHub Actions: [successful run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062).
+- [x] Real-data eight-module notebook execution in GitHub Actions: [successful run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890).
 - [x] 1,440 cleaned English BBC articles, five topic labels, 80/20 stratified train/holdout split.
 - [x] Baseline plus three nontrivial classifiers, train-only cross-validation, feature ablation and separate holdout.
 - [x] Eight figures, model scores, real-data run manifest and trained model in canonical repository.
