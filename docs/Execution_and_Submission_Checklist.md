@@ -9,7 +9,7 @@ Checkmarks below report observable repository evidence, **not** instructor permi
 - [x] 1,440 cleaned English BBC articles, five topic labels, 80/20 stratified train/holdout split.
 - [x] Baseline plus three nontrivial classifiers, train-only cross-validation, feature ablation and separate holdout.
 - [x] Eight figures, model scores, real-data run manifest and trained model in canonical repository.
-- [x] Seven-page technical PDF generated from actual scores and a two-page individual reflection PDF.
+- [x] Eight-page technical PDF generated from actual scores and a two-page individual reflection PDF.
 - [x] Portfolio-folder entry named `ITAI2373-NewsBot-Midterm` with a course notebook and links to canonical evidence.
 - [x] Code tests and reproducibility workflow documented separately from model evaluation.
 
