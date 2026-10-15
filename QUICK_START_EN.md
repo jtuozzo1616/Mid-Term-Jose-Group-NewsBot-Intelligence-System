@@ -6,11 +6,12 @@
 ## Inspect the finished work
 
 - **Notebook:** [Midterm_NewsBot_Intelligence_System.ipynb](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/Midterm_NewsBot_Intelligence_System.ipynb) — complete code for all eight NLP modules.
-- **Completed execution:** [GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890) — open **Artifacts** and download `NewsBot-real-BBC-execution-evidence` to see the executed notebook.
+- **Completed notebook (permanent):** [NewsBot_Executed_Results.ipynb](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/NewsBot_Executed_Results.ipynb) — open directly to review saved outputs.
+- **Execution verification:** [successful GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38778575638).
 - **Measured results:** [outputs/](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/tree/main/outputs) — eight figures, class-level metrics, confusion matrix, model and run manifest.
 - **Reports:** [technical PDF](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) and [two-page reflection](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/NewsBot_Reflection_Solo.pdf).
 
-The root notebook intentionally contains code without stored execution outputs; the archived execution and permanent published charts show what the completed run produced.
+The root notebook is intentionally clean and runnable; the completed notebook is separately committed to both the main repository and the course portfolio, so reviewers do not have to download expiring workflow artifacts.
 
 ## Run the project in Google Colab
 
