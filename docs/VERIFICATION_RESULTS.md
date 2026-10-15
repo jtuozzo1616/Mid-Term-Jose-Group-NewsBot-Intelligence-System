@@ -9,7 +9,7 @@
 - Selected model: tuned Linear SVM with class balancing and TF-IDF (ngram range 1–2, max_features 10000, C=2).
 - Training-only 5-fold CV macro-F1 0.9801; independent holdout macro-F1 0.9605 and accuracy 0.9618.
 - Five class-level F1 scores from outputs/per_class_metrics.csv; eight figures and source-safe aggregate tables published in outputs/.
-- Generated technical report: 7 pages; generated individual journal: **exactly 2 pages**, measured with PDF page metadata and visual render.
+- Generated technical report: 8 pages; generated individual journal: **exactly 2 pages**, measured with PDF page metadata and visual render.
 - Model file: outputs/newsbot_classifier.joblib; only load after verifying the trusted repository provenance.
 - The full executed notebook and full permitted course evidence archive are accessible from the successful Actions run.
 
