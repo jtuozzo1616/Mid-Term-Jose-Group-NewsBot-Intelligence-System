@@ -4,7 +4,7 @@
 **Student:** José Miguel Tuozzo Izaguirre  
 **Personal portfolio assignment folder:** https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm  
 **Canonical code/results:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System  
-**Successful full real-data workflow:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062
+**Successful full real-data workflow:** https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890
 
 | Rubric section | Max | Confirmed evidence | Remaining dependency |
 |---|---:|---|---|
