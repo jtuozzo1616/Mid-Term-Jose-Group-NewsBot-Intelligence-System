@@ -3,7 +3,7 @@
 
 This is a recording outline, not evidence of an uploaded video. Record actual screen content and speak naturally rather than reading each line without looking at the project.
 
-**Before recording:** Open the [public project](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System), the [successful complete run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062) and the charts in [outputs/](../outputs/). For the integrated examples, use the executed notebook from the run artifact or execute the `new_articles` cell in Colab first. Do not claim predictions that are not visible in the recording. **Use the numbers from the particular notebook being shown** if they differ from those below.
+**Before recording:** Open the [public project](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System), the [successful complete run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890) and the charts in [outputs/](../outputs/). For the integrated examples, use the executed notebook from the run artifact or execute the `new_articles` cell in Colab first. Do not claim predictions that are not visible in the recording. **Use the numbers from the particular notebook being shown** if they differ from those below.
 
 ## 0:00–0:30 | Introduction
 **Show:** Repository title and the README.
