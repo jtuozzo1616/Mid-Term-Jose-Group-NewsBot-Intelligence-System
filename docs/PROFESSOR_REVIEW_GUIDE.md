@@ -6,7 +6,7 @@ The [project homepage](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBo
 
 ## 1 — Verify the system ran
 
-[**Open the successful eight-module run**](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062). Its steps cover dependency installation, ten regression tests, notebook execution with labeled historical BBC data, output validation, evidence publication and upload of the executed notebook archive.
+[**Open the successful eight-module run**](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890). Its steps cover dependency installation, ten regression tests, notebook execution with labeled historical BBC data, output validation, evidence publication and upload of the executed notebook archive.
 
 The **main notebook** is intentionally kept without saved outputs so it is convenient to rerun. To inspect the actual executed cells, download the artifact **NewsBot-real-BBC-execution-evidence** from the run page. Its artifact availability is subject to GitHub's retention policy; the eight charts, aggregated results and PDFs remain available in the repository.
 
