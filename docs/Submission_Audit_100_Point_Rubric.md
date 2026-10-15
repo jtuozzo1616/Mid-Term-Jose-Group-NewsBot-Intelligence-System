@@ -8,7 +8,7 @@
 | GitHub repository | 30 | Named public portfolio folder; canonical notebook, README, code, automated tests, charts, aggregate CSV/JSON, experiment manifest |
 | Technical implementation | 30 | All eight NLP modules completed in a [successful real-data run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890); end-to-end demo on fictional articles; optional dashboard source |
 | Analysis and insights | 30 | 1,440 BBC articles; tuned SVM with **0.9618** accuracy and **0.9605** macro-F1; 11-error [case study](HOLDOUT_ERROR_CASE_STUDY.md) with nine confusion directions, per-desk precision/recall tradeoffs, ablation and linguistic comparisons |
-| Presentation and documentation | 10 | Seven-page technical PDF, two-page reflective journal draft, README, Colab launcher and demo script; **no recorded demo evidenced** |
+| Presentation and documentation | 10 | Eight-page technical PDF, two-page reflective journal draft, README, Colab launcher and demo script; **no public final video link yet** |
 
 ### Results, not promises
 
