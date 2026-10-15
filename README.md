@@ -11,15 +11,16 @@ NewsBot studies historical BBC news and brings eight natural language processing
 | I want to… | Open |
 |---|---|
 | **Run the full project** | [One-click Google Colab notebook](RUN_NEWSBOT_IN_COLAB.ipynb) |
-| **Review all eight modules** | [Main Jupyter notebook](Midterm_NewsBot_Intelligence_System.ipynb) |
-| **See the completed experiment** | [Real-data GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890) → **Artifacts** for the executed notebook |
+| **Review all eight modules** | [Clean, runnable notebook](Midterm_NewsBot_Intelligence_System.ipynb) |
+| **See every executed cell and its results** | **[Completed notebook with outputs](docs/NewsBot_Executed_Results.ipynb)** — permanent, no artifact download needed |
+| **Verify independent execution** | [Successful GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38778575638) |
 | **See the figures immediately** | [Eight charts and evaluation tables](outputs/) |
 | **Read the research report** | [Technical PDF](docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) |
 | **Read the personal reflection** | [Two-page PDF](docs/NewsBot_Reflection_Solo.pdf) · [First-person reading copy](docs/Personal_Reflection_Reading_Copy.md) |
 | **Follow a short review route** | [Professor's review guide](docs/PROFESSOR_REVIEW_GUIDE.md) |
 | **Explore the optional interface** | [Streamlit dashboard source](dashboard.py) |
 
-The main notebook is kept clean so it can be executed from the beginning. Its code cells do not have saved outputs in the repository. To inspect a **completed** run, use the GitHub Actions archive above; the figures, scores and report are also published directly under `outputs/` and `docs/`.
+Choose the [clean notebook](Midterm_NewsBot_Intelligence_System.ipynb) to run the project again, or the **[executed evidence notebook](docs/NewsBot_Executed_Results.ipynb)** to inspect all saved cell outputs immediately. Both are permanently available in this repository and mirrored in the [course portfolio](https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm).
 
 ## What the experiment found
 
