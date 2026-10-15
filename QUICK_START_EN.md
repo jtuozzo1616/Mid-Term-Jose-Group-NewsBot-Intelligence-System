@@ -9,6 +9,7 @@
 - **Completed notebook (permanent):** [NewsBot_Executed_Results.ipynb](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/NewsBot_Executed_Results.ipynb) — open directly to review saved outputs.
 - **Execution verification:** [successful GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38778575638).
 - **Measured results:** [outputs/](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/tree/main/outputs) — eight figures, class-level metrics, confusion matrix, model and run manifest.
+- **Error analysis:** [11 measured holdout misclassifications](docs/HOLDOUT_ERROR_CASE_STUDY.md), with [count-only confusion directions](outputs/error_directions.csv).
 - **Reports:** [technical PDF](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) and [two-page reflection](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/docs/NewsBot_Reflection_Solo.pdf).
 
 The root notebook is intentionally clean and runnable; the completed notebook is separately committed to both the main repository and the course portfolio, so reviewers do not have to download expiring workflow artifacts.
@@ -28,6 +29,7 @@ python -m pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 python run_all_and_package.py --github "https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System"
 python verify_release.py
+python verify_error_audit.py
 ```
 
 ## What to expect
