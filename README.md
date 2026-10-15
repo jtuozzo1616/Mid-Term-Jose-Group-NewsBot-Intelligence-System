@@ -2,7 +2,7 @@
 **ITAI 2373 — Natural Language Processing | Midterm Project**
 
 **José Miguel Tuozzo Izaguirre**  
-[Open in Google Colab](https://colab.research.google.com/github/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/RUN_NEWSBOT_IN_COLAB.ipynb) · [Course portfolio](https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm) · [Verified execution](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062)
+[Open in Google Colab](https://colab.research.google.com/github/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/blob/main/RUN_NEWSBOT_IN_COLAB.ipynb) · [Course portfolio](https://github.com/jtuozzo1616/Jose-Tuozzo-AI-Portfolio/tree/main/ITAI2373-NewsBot-Midterm) · [Verified execution](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890)
 
 NewsBot studies historical BBC news and brings eight natural language processing techniques into a single article-analysis pipeline. It sorts articles into editorial topics, examines language and sentiment, and extracts named entities. The intended use is to **assist** human editors and media researchers—not publish stories automatically or verify facts.
 
@@ -12,7 +12,7 @@ NewsBot studies historical BBC news and brings eight natural language processing
 |---|---|
 | **Run the full project** | [One-click Google Colab notebook](RUN_NEWSBOT_IN_COLAB.ipynb) |
 | **Review all eight modules** | [Main Jupyter notebook](Midterm_NewsBot_Intelligence_System.ipynb) |
-| **See the completed experiment** | [Real-data GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38491913062) → **Artifacts** for the executed notebook |
+| **See the completed experiment** | [Real-data GitHub Actions run](https://github.com/jtuozzo1616/Mid-Term-Jose-Group-NewsBot-Intelligence-System/actions/runs/38775732890) → **Artifacts** for the executed notebook |
 | **See the figures immediately** | [Eight charts and evaluation tables](outputs/) |
 | **Read the research report** | [Technical PDF](docs/MT_Report_Group_Solo_Jose_Miguel_Tuozzo_Izaguirre_ITAI2373.pdf) |
 | **Read the reflection** | [Two-page reflection PDF](docs/NewsBot_Reflection_Solo.pdf) |
