@@ -1,0 +1,97 @@
+{
+  "status": "ok",
+  "n_articles": 30,
+  "method": "3-fold stratified out-of-fold prediction",
+  "accuracy": 0.5667,
+  "macro_f1": 0.5371,
+  "per_class": {
+    "business": {
+      "precision": 0.5,
+      "recall": 0.16666666666666666,
+      "f1-score": 0.25,
+      "support": 6.0
+    },
+    "entertainment": {
+      "precision": 0.4,
+      "recall": 0.3333333333333333,
+      "f1-score": 0.36363636363636365,
+      "support": 6.0
+    },
+    "politics": {
+      "precision": 0.4444444444444444,
+      "recall": 0.6666666666666666,
+      "f1-score": 0.5333333333333333,
+      "support": 6.0
+    },
+    "sport": {
+      "precision": 0.7142857142857143,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.7692307692307693,
+      "support": 6.0
+    },
+    "tech": {
+      "precision": 0.7142857142857143,
+      "recall": 0.8333333333333334,
+      "f1-score": 0.7692307692307693,
+      "support": 6.0
+    },
+    "accuracy": 0.5666666666666667,
+    "macro avg": {
+      "precision": 0.5546031746031747,
+      "recall": 0.5666666666666667,
+      "f1-score": 0.5370862470862471,
+      "support": 30.0
+    },
+    "weighted avg": {
+      "precision": 0.5546031746031745,
+      "recall": 0.5666666666666667,
+      "f1-score": 0.5370862470862471,
+      "support": 30.0
+    }
+  },
+  "classes": [
+    "business",
+    "entertainment",
+    "politics",
+    "sport",
+    "tech"
+  ],
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      2,
+      1,
+      2
+    ],
+    [
+      0,
+      2,
+      3,
+      1,
+      0
+    ],
+    [
+      1,
+      1,
+      4,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      5,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      5
+    ]
+  ],
+  "limitation": "This evaluates the provided corpus only; synthetic fixture scores have no external validity"
+}

@@ -1,0 +1,20 @@
+{
+  "total_articles": 30,
+  "label_distribution": {
+    "tech": 6,
+    "business": 6,
+    "politics": 6,
+    "sport": 6,
+    "entertainment": 6
+  },
+  "language_hints": {
+    "en": 25,
+    "es": 2,
+    "fr": 2,
+    "de": 1
+  },
+  "synthetic_articles": 30,
+  "retrieval_method": "tfidf-pivot",
+  "classifier_origin": "not-trained",
+  "data_warning": "Synthetic examples are demos, not real-world validation."
+}

@@ -1,0 +1,7 @@
+{
+  "status": "insufficient_evidence",
+  "answer": "I could not find adequate supporting material in the loaded articles. Please name a topic, entity or article title, or upload relevant sources.",
+  "citations": [],
+  "retrieval_method": "tfidf-pivot",
+  "confidence_policy": "abstain-on-low-retrieval"
+}

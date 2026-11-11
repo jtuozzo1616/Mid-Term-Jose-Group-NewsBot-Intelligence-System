@@ -1,0 +1,6 @@
+# Core CPU-first install; no API keys, no model weights to download
+numpy>=1.26,<3
+scipy>=1.11,<2
+scikit-learn>=1.4,<2
+nltk>=3.8,<4
+joblib>=1.3,<2

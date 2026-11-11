@@ -1,0 +1,63 @@
+{
+  "status": "ok",
+  "method": "NMF-TFIDF",
+  "topics": [
+    {
+      "topic_id": 0,
+      "terms": [
+        "training",
+        "local",
+        "said",
+        "club",
+        "event",
+        "digital",
+        "swimming",
+        "fictional"
+      ],
+      "article_count_top_topic": 10
+    },
+    {
+      "topic_id": 1,
+      "terms": [
+        "school",
+        "public",
+        "council",
+        "proposal",
+        "student",
+        "hearings",
+        "budget",
+        "maintenance"
+      ],
+      "article_count_top_topic": 8
+    },
+    {
+      "topic_id": 2,
+      "terms": [
+        "software",
+        "team",
+        "tested",
+        "researchers",
+        "power",
+        "prototype",
+        "navigation",
+        "robotics"
+      ],
+      "article_count_top_topic": 7
+    },
+    {
+      "topic_id": 3,
+      "terms": [
+        "le",
+        "une",
+        "les",
+        "programme",
+        "cinéma",
+        "des",
+        "transport",
+        "réunion"
+      ],
+      "article_count_top_topic": 5
+    }
+  ],
+  "warning": "Topic IDs/terms are exploratory and sensitive to corpus composition"
+}

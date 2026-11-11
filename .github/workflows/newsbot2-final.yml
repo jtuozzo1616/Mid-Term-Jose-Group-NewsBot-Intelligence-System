@@ -1,0 +1,31 @@
+name: NewsBot 2.0 Final Project - CI
+on:
+  push:
+    paths: ['final-newsbot-2.0/**','.github/workflows/newsbot2-final.yml']
+  pull_request:
+    paths: ['final-newsbot-2.0/**','.github/workflows/newsbot2-final.yml']
+  workflow_dispatch:
+jobs:
+  offline-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: final-newsbot-2.0
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+          cache-dependency-path: final-newsbot-2.0/requirements-dev.txt
+      - run: python -m pip install -r requirements-dev.txt
+      - run: python -m pytest tests -q
+      - run: python -m newsbot2.cli overview > ../newsbot2_overview.json
+      - run: python run_research.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newsbot2-final-offline-evaluation
+          path: |
+            newsbot2_overview.json
+            final-newsbot-2.0/artifacts/research_results.json

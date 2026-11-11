@@ -1,0 +1,64 @@
+{
+  "article": {
+    "article_id": "demo-tech-1",
+    "title": "Engineers test low-power AI chips",
+    "body": "A university engineering team tested an experimental computer chip designed to reduce the energy required for artificial intelligence tasks. The study measured processing time and power consumption under laboratory conditions. The researchers plan another trial before any public release.",
+    "source": "Synthetic classroom demonstration — fictional",
+    "published_at": "2026-11-01",
+    "language": "en",
+    "category": "tech",
+    "url": "",
+    "synthetic": true
+  },
+  "language": {
+    "language": "en",
+    "confidence": "medium",
+    "method": "stopword-heuristic",
+    "scores": {
+      "en": 6,
+      "es": 0,
+      "fr": 0,
+      "de": 0
+    }
+  },
+  "classification": {
+    "status": "unavailable",
+    "label": null,
+    "reason": "No trained classifier loaded"
+  },
+  "sentiment": {
+    "label": "neutral",
+    "score": 0.0,
+    "method": "weak-lexicon-fallback",
+    "warning": "Exploratory language-dependent lexical indicator, NOT validated sentiment"
+  },
+  "entities": {
+    "mentions": [],
+    "method": "regex-candidates",
+    "warning": "Candidate phrases only; not named-entity recognition"
+  },
+  "summary": {
+    "text": "A university engineering team tested an experimental computer chip designed to reduce the energy required for artificial intelligence tasks. The study measured processing time and power consumption under laboratory conditions. The researchers plan another trial before any public release.",
+    "method": "extractive",
+    "selected_sentence_indices": [
+      0,
+      1,
+      2
+    ]
+  },
+  "enhancement": {
+    "headlines": [
+      "Engineers test low-power AI chips",
+      "Briefing: Engineers test low-power AI chips",
+      "Explainer | Engineers test low-power AI chips"
+    ],
+    "short_blurb": "A university engineering team tested an experimental computer chip designed to reduce the energy required for artificial intelligence tasks. The study measured processing time and power consumption under laboratory conditions. The researchers plan another trial before any public release.",
+    "guardrail": "Templates preserve user-supplied title; editor must verify accuracy"
+  },
+  "provenance": {
+    "article_id": "demo-tech-1",
+    "sha256": "c4e7d2bf53009bc237f26731d2842a082e621cfe79588f52a06c435245fed5b4",
+    "synthetic": true,
+    "source": "Synthetic classroom demonstration — fictional"
+  }
+}

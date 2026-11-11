@@ -1,0 +1,6 @@
+-r requirements-app.txt
+# OPTIONAL - downloads model weights only if explicitly selected by the user
+sentence-transformers>=3,<6
+# OPTIONAL - translation still requires language pack installation
+argostranslate>=1.9,<2
+spacy>=3.7,<4
