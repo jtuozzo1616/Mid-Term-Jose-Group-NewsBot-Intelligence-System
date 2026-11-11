@@ -1,0 +1,30 @@
+{
+  "status": "grounded_extract",
+  "answer": "[demo-tech-1] A university engineering team tested an experimental computer chip designed to reduce the energy required for artificial intelligence tasks.\n\n[demo-business-6] Una empresa presentó un informe sobre costos de energía y posibles inversiones.\n\n[demo-tech-2] A robotics laboratory presented an indoor robot that identifies obstacles using cameras and distance sensors.",
+  "citations": [
+    {
+      "article_id": "demo-tech-1",
+      "title": "Engineers test low-power AI chips",
+      "source": "Synthetic classroom demonstration — fictional",
+      "retrieval_score": 0.2398,
+      "synthetic": true
+    },
+    {
+      "article_id": "demo-business-6",
+      "title": "Empresa analiza inversión en energía limpia",
+      "source": "Synthetic classroom demonstration — fictional",
+      "retrieval_score": 0.0768,
+      "synthetic": true
+    },
+    {
+      "article_id": "demo-tech-2",
+      "title": "Robotics lab demonstrates safer indoor navigation",
+      "source": "Synthetic classroom demonstration — fictional",
+      "retrieval_score": 0.0543,
+      "synthetic": true
+    }
+  ],
+  "retrieval_method": "tfidf-pivot",
+  "confidence_policy": "retrieval-score-only (not calibrated answer probability)",
+  "warning": "These excerpts come from source texts; they are not independently fact-checked."
+}

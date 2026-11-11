@@ -1,0 +1,652 @@
+{
+  "experiment": "NewsBot 2.0 — transparently synthetic controlled probe",
+  "date_utc": "2026-11-11T01:33:28.556541+00:00",
+  "python": "3.13.5",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "source": "data/demo_news.jsonl",
+  "source_type": "hand-authored fictional articles",
+  "n_records": 30,
+  "n_languages": 4,
+  "n_topics": 5,
+  "all_examples_synthetic": true,
+  "sha256_manifest": [
+    {
+      "article_id": "demo-tech-1",
+      "sha256": "c4e7d2bf53009bc237f26731d2842a082e621cfe79588f52a06c435245fed5b4"
+    },
+    {
+      "article_id": "demo-tech-2",
+      "sha256": "15f9bbdae41fae3624215a4b1209170ec716b2db20ad294ad99cada3bd335165"
+    },
+    {
+      "article_id": "demo-tech-3",
+      "sha256": "a7bfe00df55c74b33668db3510b778d1a620633c31a95bb4dbc6355ded54d4b5"
+    },
+    {
+      "article_id": "demo-tech-4",
+      "sha256": "0af3cb9d9be56efa259bd2f040d7a2a57dc521aebe6fddabaafb58a9af8bd3a0"
+    },
+    {
+      "article_id": "demo-tech-5",
+      "sha256": "205436c7d10d8a99570ee7a2bf34721441907add17df4fbbe3fbab4c54f6d8e9"
+    },
+    {
+      "article_id": "demo-business-1",
+      "sha256": "e6b091307531161d32b1da3c2a400c593cb789e204e3175a2c63f4326ff72860"
+    },
+    {
+      "article_id": "demo-business-2",
+      "sha256": "fb24dee6ab6252dc9e648feed0bf3a69d0aa2e0ddf3d70c8c03d4758bd561f67"
+    },
+    {
+      "article_id": "demo-business-3",
+      "sha256": "fe2f676bc8cc96eb69d9f2dd3ae487a63a069dbdd69c833a0c217be5ec0390d2"
+    },
+    {
+      "article_id": "demo-business-4",
+      "sha256": "d489cfe3e10ace077acb5bbd069bef269e4d1bcb9db8d17b7e65c4f91ed8103c"
+    },
+    {
+      "article_id": "demo-business-5",
+      "sha256": "19afdfad43b224d6a88f1ed26a48c5dbdb90a0bf0ee7b2c8ec2b9eac0c52ff39"
+    },
+    {
+      "article_id": "demo-politics-1",
+      "sha256": "8b619d0bdc5d0e3e8d644bc3e08f99ed412c09eb455e5abca2a6f1bedde8189e"
+    },
+    {
+      "article_id": "demo-politics-2",
+      "sha256": "94416d784b11bc7e406c0e2bc137167b31e0b86b3fcf78e1262d97b5939dd5f6"
+    },
+    {
+      "article_id": "demo-politics-3",
+      "sha256": "dcf7c25ad5b0d6864f129f3225c2e1b7a9082e7c9c4b7920056a8bf3004a8b1e"
+    },
+    {
+      "article_id": "demo-politics-4",
+      "sha256": "7661182c7c07701ffbcdad29c2e3afd2e0a60f73d6a0c9c0ee0c997087ff6303"
+    },
+    {
+      "article_id": "demo-politics-5",
+      "sha256": "1d8b9608c11d27137019b5acca013733d7c8f0cc08bdca524b702e4820bd28f2"
+    },
+    {
+      "article_id": "demo-sport-1",
+      "sha256": "050896f23c994758e79bd529e2bacb9fa4df6a1dc26c736a4b8f7c3becbdc724"
+    },
+    {
+      "article_id": "demo-sport-2",
+      "sha256": "bef6e259fbf4794ca3c8ccd607f822fe70b3202efd8eef68105430111538ea25"
+    },
+    {
+      "article_id": "demo-sport-3",
+      "sha256": "ce3fc6065c41efc3c84d43cc193a7b81d4b4c3951a41aaa02ce25163868d2213"
+    },
+    {
+      "article_id": "demo-sport-4",
+      "sha256": "347372e15efafc2d8711d2b9f1b9004fd8a8b16cd457cc400fbb36895922db65"
+    },
+    {
+      "article_id": "demo-sport-5",
+      "sha256": "22ed36e3946599f6b84505fa1a55319e619911c6a29202b949517ba12f3e293b"
+    },
+    {
+      "article_id": "demo-entertainment-1",
+      "sha256": "fb53fe947bd478298129e109dddc7d3f858d4eaec549c96365df42711fe74d13"
+    },
+    {
+      "article_id": "demo-entertainment-2",
+      "sha256": "850742581c72ecb857801f4e2745a92bfcae89cfe9282092af5a5d41cfb17726"
+    },
+    {
+      "article_id": "demo-entertainment-3",
+      "sha256": "0cd02763462b53b79de0a7a00222c44ceb8d3cd6f30cbbc46aed9ca77c23d970"
+    },
+    {
+      "article_id": "demo-entertainment-4",
+      "sha256": "2be14be6a847d98628629cbd3bdd40c366d74be8f1079af225af57946cc91186"
+    },
+    {
+      "article_id": "demo-entertainment-5",
+      "sha256": "3fe0bf84becd1702008bbdd46fd2b3fce3299192391b1f9305b1a2b7c2bfa2fc"
+    },
+    {
+      "article_id": "demo-tech-6",
+      "sha256": "1486707b3dc89338cb8e8b3d630e15b23211bed645b7d6f24f2d2cf8336bd05b"
+    },
+    {
+      "article_id": "demo-business-6",
+      "sha256": "092fb10a5394296e63f3eef3df654597b1b24ccb4084644d699b620a88dcb04d"
+    },
+    {
+      "article_id": "demo-politics-6",
+      "sha256": "08c5395b4af46ad264c633414c2d3aeae5403ffa08ff763d7b4e37419415b8c6"
+    },
+    {
+      "article_id": "demo-sport-6",
+      "sha256": "945f7f3a271601f0c3bd8840b62b0b6aa020ae6cb3f7ebb2310daa1aa9d58d46"
+    },
+    {
+      "article_id": "demo-entertainment-6",
+      "sha256": "b0714ecb4f73cec26fbd66cf15fc93ab6938b9e7aaa896790cabdc32905db9ad"
+    }
+  ],
+  "retriever_build_seconds": 0.00535,
+  "retrieval_probes": {
+    "n": 24,
+    "k": 3,
+    "pivot_mrr": 1.0,
+    "pivot_recall_at_k": 1.0,
+    "naive_mrr": 0.625,
+    "naive_recall_at_k": 0.625,
+    "interpretation": "In-corpus hand-authored probes, some selected after inspecting results; not independent cross-language validation",
+    "pivot_examples": [
+      {
+        "query": "chip artificial intelligence energy",
+        "expected": "demo-tech-1",
+        "top_k": [
+          "demo-tech-1",
+          "demo-tech-6",
+          "demo-business-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "robot cameras sensors navigation",
+        "expected": "demo-tech-2",
+        "top_k": [
+          "demo-tech-2",
+          "demo-tech-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "bank loan review",
+        "expected": "demo-business-3",
+        "top_k": [
+          "demo-business-3",
+          "demo-business-2"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "shipping logistics delays",
+        "expected": "demo-business-4",
+        "top_k": [
+          "demo-business-4"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "election polling accessibility proposal",
+        "expected": "demo-politics-2",
+        "top_k": [
+          "demo-politics-2",
+          "demo-tech-4",
+          "demo-politics-3"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "school budget public hearings",
+        "expected": "demo-politics-5",
+        "top_k": [
+          "demo-politics-5",
+          "demo-entertainment-2",
+          "demo-politics-4"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "cycling route signs safety",
+        "expected": "demo-sport-5",
+        "top_k": [
+          "demo-sport-5",
+          "demo-business-5"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "swimming championship roster",
+        "expected": "demo-sport-4",
+        "top_k": [
+          "demo-sport-4"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "theatre drama production",
+        "expected": "demo-entertainment-3",
+        "top_k": [
+          "demo-entertainment-3"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "animation storytelling festival",
+        "expected": "demo-entertainment-5",
+        "top_k": [
+          "demo-entertainment-5",
+          "demo-entertainment-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "robótica navegación universidad",
+        "expected": "demo-tech-6",
+        "top_k": [
+          "demo-tech-6",
+          "demo-tech-2",
+          "demo-tech-1"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "empresa energía inversión mercado",
+        "expected": "demo-business-6",
+        "top_k": [
+          "demo-business-6",
+          "demo-entertainment-3",
+          "demo-business-2"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "gouvernement politique transport",
+        "expected": "demo-politics-6",
+        "top_k": [
+          "demo-politics-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "sport fußballturnier",
+        "expected": "demo-sport-6",
+        "top_k": [
+          "demo-sport-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "cinéma programme musique",
+        "expected": "demo-entertainment-6",
+        "top_k": [
+          "demo-entertainment-6",
+          "demo-entertainment-2",
+          "demo-entertainment-1"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "investigación datos privacidad",
+        "expected": "demo-tech-3",
+        "top_k": [
+          "demo-tech-3",
+          "demo-business-2",
+          "demo-tech-5"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "deportes fútbol",
+        "expected": "demo-sport-1",
+        "top_k": [
+          "demo-sport-1"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "política elecciones",
+        "expected": "demo-politics-2",
+        "top_k": [
+          "demo-politics-2",
+          "demo-politics-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "cine música",
+        "expected": "demo-entertainment-6",
+        "top_k": [
+          "demo-entertainment-6",
+          "demo-entertainment-2",
+          "demo-entertainment-1"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "économie marché",
+        "expected": "demo-business-6",
+        "top_k": [
+          "demo-business-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "forschung daten",
+        "expected": "demo-tech-3",
+        "top_k": [
+          "demo-tech-3",
+          "demo-business-2",
+          "demo-tech-5"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "fußball sport",
+        "expected": "demo-sport-1",
+        "top_k": [
+          "demo-sport-1"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "technologie robotique",
+        "expected": "demo-tech-2",
+        "top_k": [
+          "demo-tech-2",
+          "demo-politics-5",
+          "demo-business-5"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "regierung politik",
+        "expected": "demo-politics-6",
+        "top_k": [
+          "demo-politics-6"
+        ],
+        "reciprocal_rank": 1.0
+      }
+    ],
+    "ablation_no_pivot_examples": [
+      {
+        "query": "chip artificial intelligence energy",
+        "expected": "demo-tech-1",
+        "top_k": [
+          "demo-tech-1",
+          "demo-business-2",
+          "demo-tech-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "robot cameras sensors navigation",
+        "expected": "demo-tech-2",
+        "top_k": [
+          "demo-tech-2",
+          "demo-tech-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "bank loan review",
+        "expected": "demo-business-3",
+        "top_k": [
+          "demo-business-3",
+          "demo-business-2"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "shipping logistics delays",
+        "expected": "demo-business-4",
+        "top_k": [
+          "demo-business-4"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "election polling accessibility proposal",
+        "expected": "demo-politics-2",
+        "top_k": [
+          "demo-politics-2",
+          "demo-tech-4",
+          "demo-politics-3"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "school budget public hearings",
+        "expected": "demo-politics-5",
+        "top_k": [
+          "demo-politics-5",
+          "demo-entertainment-2",
+          "demo-politics-4"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "cycling route signs safety",
+        "expected": "demo-sport-5",
+        "top_k": [
+          "demo-sport-5",
+          "demo-business-5"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "swimming championship roster",
+        "expected": "demo-sport-4",
+        "top_k": [
+          "demo-sport-4"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "theatre drama production",
+        "expected": "demo-entertainment-3",
+        "top_k": [
+          "demo-entertainment-3"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "animation storytelling festival",
+        "expected": "demo-entertainment-5",
+        "top_k": [
+          "demo-entertainment-5",
+          "demo-entertainment-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "robótica navegación universidad",
+        "expected": "demo-tech-6",
+        "top_k": [
+          "demo-tech-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "empresa energía inversión mercado",
+        "expected": "demo-business-6",
+        "top_k": [
+          "demo-business-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "gouvernement politique transport",
+        "expected": "demo-politics-6",
+        "top_k": [
+          "demo-politics-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "sport fußballturnier",
+        "expected": "demo-sport-6",
+        "top_k": [
+          "demo-sport-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "cinéma programme musique",
+        "expected": "demo-entertainment-6",
+        "top_k": [
+          "demo-entertainment-6"
+        ],
+        "reciprocal_rank": 1.0
+      },
+      {
+        "query": "investigación datos privacidad",
+        "expected": "demo-tech-3",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "deportes fútbol",
+        "expected": "demo-sport-1",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "política elecciones",
+        "expected": "demo-politics-2",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "cine música",
+        "expected": "demo-entertainment-6",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "économie marché",
+        "expected": "demo-business-6",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "forschung daten",
+        "expected": "demo-tech-3",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "fußball sport",
+        "expected": "demo-sport-1",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "technologie robotique",
+        "expected": "demo-tech-2",
+        "top_k": [],
+        "reciprocal_rank": 0
+      },
+      {
+        "query": "regierung politik",
+        "expected": "demo-politics-6",
+        "top_k": [],
+        "reciprocal_rank": 0
+      }
+    ]
+  },
+  "synthetic_classification_cv": {
+    "status": "ok",
+    "n_articles": 30,
+    "method": "3-fold stratified out-of-fold prediction",
+    "accuracy": 0.5667,
+    "macro_f1": 0.5371,
+    "per_class": {
+      "business": {
+        "precision": 0.5,
+        "recall": 0.16666666666666666,
+        "f1-score": 0.25,
+        "support": 6.0
+      },
+      "entertainment": {
+        "precision": 0.4,
+        "recall": 0.3333333333333333,
+        "f1-score": 0.36363636363636365,
+        "support": 6.0
+      },
+      "politics": {
+        "precision": 0.4444444444444444,
+        "recall": 0.6666666666666666,
+        "f1-score": 0.5333333333333333,
+        "support": 6.0
+      },
+      "sport": {
+        "precision": 0.7142857142857143,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.7692307692307693,
+        "support": 6.0
+      },
+      "tech": {
+        "precision": 0.7142857142857143,
+        "recall": 0.8333333333333334,
+        "f1-score": 0.7692307692307693,
+        "support": 6.0
+      },
+      "accuracy": 0.5666666666666667,
+      "macro avg": {
+        "precision": 0.5546031746031747,
+        "recall": 0.5666666666666667,
+        "f1-score": 0.5370862470862471,
+        "support": 30.0
+      },
+      "weighted avg": {
+        "precision": 0.5546031746031745,
+        "recall": 0.5666666666666667,
+        "f1-score": 0.5370862470862471,
+        "support": 30.0
+      }
+    },
+    "classes": [
+      "business",
+      "entertainment",
+      "politics",
+      "sport",
+      "tech"
+    ],
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
+      [
+        0,
+        2,
+        3,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        5,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        5
+      ]
+    ],
+    "limitation": "This evaluates the provided corpus only; synthetic fixture scores have no external validity"
+  },
+  "limitations": [
+    "No independent newsroom or multilingual benchmark",
+    "No generative LLM evaluation",
+    "No installed offline translation pack in the default environment",
+    "The midterm BBC scores must not be substituted for these synthetic results"
+  ]
+}
